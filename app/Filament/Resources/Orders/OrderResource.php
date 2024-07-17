@@ -41,6 +41,16 @@ class OrderResource extends Resource
                 Forms\Components\TextInput::make('total')
                     ->required()
                     ->numeric(),
+                Forms\Components\Select::make('status')
+                    ->options([
+                        'pending',
+                        'completed',
+                        'failed',
+                        'canceled',
+                        'processing',
+                        'delivered'
+                    ])
+                    ->required(),
             ]);
     }
 
@@ -59,6 +69,9 @@ class OrderResource extends Resource
                 Tables\Columns\TextColumn::make('total')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->sortable()
+                    ->searchable(),    
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

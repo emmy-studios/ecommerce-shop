@@ -116,12 +116,14 @@ class OrderController extends Controller
 
         // Update Total After the Discounts
         $order->subtotal = $subtotal;
-        $order->total = $subtotal - $totalDiscount; 
+        $order->total = $subtotal - $totalDiscount;
+        $order->status = 'pending'; 
         $order->save();
 
         // Send Email to the Admin
-        $websiteInfo = Websiteinfo::first();
-        $user = Auth::user();
+        //$websiteInfo = Websiteinfo::first();
+        //$user = Auth::user();
+        /*
         $data = [
             'username' => $user->name,
             'first_name' => $user->first_name,
@@ -132,11 +134,13 @@ class OrderController extends Controller
             'order_subtotal' => $order->subtotal,
             'total' => $order->total,
             'website_name' => $websiteInfo->website_name,
-        ]; 
-        Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
+        ];*/ 
+        //Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
 
-        return redirect()->route('dashboard')
-            ->with('success', 'New Order Created Successfully. Click on details for invoice and check email!');
+         // Store order data in session
+         session(['order' => $order]);
+
+        return redirect()->route('payment.method');
     }
 
 

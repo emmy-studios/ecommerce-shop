@@ -10,7 +10,7 @@ use App\Http\Controllers\Orders\OrderController;
 use App\Http\Controllers\Core\CoreController;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Invoices\InvoiceController;
-
+use App\Http\Controllers\Payments\PaymentController;
 use Illuminate\Support\Facades\Route;
 
 // News Routes
@@ -29,6 +29,15 @@ Route::get('/orders/create', [OrderController::class, 'create'])->name('order.cr
 Route::post('/orders/order-store', [OrderController::class, 'store'])->name('order.store')->middleware('auth');
 //Route::get('/orders/order-history', [OrderController::class, 'index'])->name('order.history')->middleware('auth');
 Route::get('/orders/{id}', [OrderController::class, 'show'])->name('order.show')->middleware('auth');
+
+// Payments Routes
+Route::get('/payment-method', [PaymentController::class, 'paymentMethod'])->name('payment.method')->middleware('auth');
+Route::get('/pay-by-email', [PaymentController::class, 'payByEmail'])->name('payment.email')->middleware('auth');
+Route::post('/pay-by-email', [PaymentController::class, 'payByEmailStore'])->name('pay.email.store')->middleware('auth');
+Route::get('/order-success', [PaymentController::class, 'orderSuccess'])->name('order.success')->middleware('auth');
+Route::get('/pay-method-edit/{id}', [PaymentController::class, 'payMethodEdit'])->name('payment.method.edit')->middleware('auth');
+Route::get('/pay-email-edit', [PaymentController::class, 'payEmailEdit'])->name('payment.email.edit');
+Route::post('pay-email-edit', [PaymentController::class, 'payEmailEditStore'])->name('payment.method.edit.store')->middleware('auth');
 
 // Wishlist Routes
 Route::get('/wishlist/{id}', [WishlistController::class, 'show'])->name('wishlist.show')->middleware('auth');
@@ -52,8 +61,8 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout
 
 // Profile Routes
 Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard')->middleware('auth'); 
-Route::get('/edit-profile', [ProfileController::class, 'profileForm'])->name('profile.edit');
-Route::post('/profile-update', [ProfileController::class, 'profileUpdate'])->name('profile.update');
+Route::get('/edit-profile', [ProfileController::class, 'profileForm'])->name('profile.edit')->middleware('auth');
+Route::post('/profile-update', [ProfileController::class, 'profileUpdate'])->name('profile.update')->middleware('auth');
 
 // Invoices Routes
-Route::get('/generate-invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate');
+Route::get('/generate-invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate')->middleware('auth');

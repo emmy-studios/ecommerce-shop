@@ -152,7 +152,7 @@
                                     <button
                                         type="submit"
                                         class="hover:bg-purple-500 dark:bg-white dark:text-purple-800 dark:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-800 py-5 w-96 md:w-full bg-purple-600 text-base font-medium leading-4 text-white">
-                                        Order by Email
+                                        Make the Order
                                     </button>
                                 </div>
                             </div>

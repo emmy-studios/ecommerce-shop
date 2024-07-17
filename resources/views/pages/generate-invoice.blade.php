@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ecommerce | Invoice</title>
+        <title>{{ config('app.name') }} | Invoice</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -89,7 +89,7 @@
     <body>
         <div class="container">
             <div class="header">
-                <h1>ecommerce</h1>
+                <h1>{{ config('app.name') }}</h1>
                 <div class="date">
                     <p>{{ $createdAt }}</p>
                     <p>Order Code: {{ $order->order_code }}</p>

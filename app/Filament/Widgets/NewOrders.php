@@ -29,6 +29,9 @@ class NewOrders extends BaseWidget
                 Tables\Columns\TextColumn::make('total')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->sortable()
+                    ->searchable(), 
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

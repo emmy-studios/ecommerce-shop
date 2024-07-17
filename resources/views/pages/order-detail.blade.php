@@ -11,7 +11,13 @@
             <div class="w-80 rounded bg-gray-50 px-6 pt-4 shadow-lg">
             
                 <div class="flex flex-col justify-center items-center gap-2">
-                    <h4 class="font-semibold">{{ $websiteInfo->website_name }}</h4>
+
+                    @if($websiteInfo && $websiteInfo->website_name)
+                        <h4 class="font-semibold">{{ $websiteInfo->website_name }}</h4>
+                    @else
+                        <h4 class="font-semibold">ecommerce</h4>
+                    @endif
+
                     <p class="text-xs">{{ $createdAt }}</p>
                 </div>
                 <div class="flex flex-col gap-3 border-b py-6 text-xs">
@@ -67,14 +73,30 @@
 
                     <div class="border-b border border-dashed"></div>
                     <div class="py-4 justify-center items-center flex flex-col gap-2">
-                        <p class="flex gap-2">
-                            <i class="fa-solid fa-envelope"></i>
-                            {{ $websiteInfo->main_mail }}
-                        </p>
-                        <p class="flex gap-2">
-                            <i class="fa-solid fa-mobile-retro"></i>
-                            (+506) 1234 56789
-                        </p>
+
+                        @if($websiteInfo && $websiteInfo->main_mail)
+                            <p class="flex gap-2">
+                                <i class="fa-solid fa-envelope"></i>
+                                {{ $websiteInfo->main_mail }}
+                            </p>
+                        @else
+                            <p class="flex gap-2">
+                                <i class="fa-solid fa-envelope"></i>
+                                ecommerce.info@gmail.com
+                            </p>
+                        @endif
+
+                        @if($websiteInfo && $websiteInfo->phone_code && $websiteInfo->phone_number )
+                            <p class="flex gap-2">
+                                <i class="fa-solid fa-mobile-retro"></i>
+                                {{ $websiteInfo->phone_code }} {{ $websiteInfo->phone_number }}
+                            </p>
+                        @else
+                            <p class="flex gap-2">
+                                <i class="fa-solid fa-mobile-retro"></i>
+                                (+506) 1234 5678
+                            </p>
+                        @endif
                     </div>
                 </div>
 

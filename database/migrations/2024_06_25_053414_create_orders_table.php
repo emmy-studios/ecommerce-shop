@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('order_code')->unique();
             $table->decimal('subtotal', 10, 2);
             $table->decimal('total', 10, 2);
+            $table->enum('status', ['pending', 'completed', 'failed', 'canceled', 'processing', 'delivered'])->default('pending');
             $table->timestamps();
         });
     }
