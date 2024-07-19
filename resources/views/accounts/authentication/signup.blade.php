@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Ecommerce | Create an Account')
+@section('title', config('app.name') . ' | Create an Account')
 
 @section('content')
     

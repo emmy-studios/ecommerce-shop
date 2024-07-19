@@ -20,7 +20,7 @@ class Order extends Model
         'subtotal',
         'total',
         'status',
-    ]; 
+    ];  
  
     public function user(): BelongsTo
     {

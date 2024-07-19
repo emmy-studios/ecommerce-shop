@@ -4,14 +4,14 @@
         
         <div>
             <img 
-                src="{{ asset('assets/images/core/hero01.jpg') }}" 
+                src="{{ asset('assets/images/core/banner02.jpg') }}" 
                 alt=""
                 >
         </div>
         
         <div>
             <img 
-                src="{{ asset('assets/images/core/hero02.jpg') }}"
+                src="{{ asset('assets/images/core/banner01.jpg') }}"
                 alt=""
                 >
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'ecommerce | Edit Profile')
+@section('title', config('app.name') . ' | Edit Profile')
 
 @section('content')
 
@@ -62,6 +62,14 @@
                                 <label for="phone_code">Phone Code:</label>
                                 <input class="px-2 py-2 border border-purple-700 rounded" value="{{ $user->phone_code }}" type="text" name="phone_code">
                                 @error('phone_code')
+                                    <p class="pl-6 text-red-500 text-sm">{{ $message }}</p>
+                                @enderror 
+                            </div>
+
+                            <div class="flex flex-col my-4 space-y-2">
+                                <label for="phone_number">Phone Number:</label>
+                                <input class="px-2 py-2 border border-purple-700 rounded" value="{{ $user->phone_number }}" type="text" name="phone_number">
+                                @error('phone_number')
                                     <p class="pl-6 text-red-500 text-sm">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -153,12 +161,12 @@
                         <div>
 
                             <div class="flex flex-col my-4 space-y-2 px-10">
-                                <label for="address_line_1">Address Details 1:</label>
+                                <label for="address_line_1">Personal Address:</label>
                                 <input class="px-2 py-2 border border-purple-700 rounded" value="{{ $addressInfo->address_line_1 }}"  type="text" name="address_line_1">
                             </div>
 
                             <div class="flex flex-col my-4 space-y-2 px-10">
-                                <label for="address_line_2">Additional Details 2:</label>
+                                <label for="address_line_2">Shipping Address:</label>
                                 <input class="px-2 py-2 border border-purple-700 rounded" value="{{ $addressInfo->address_line_2 }}"  type="text" name="address_line_2">
                             </div>
 

@@ -33,7 +33,7 @@ class OrderController extends Controller
         // Order Items
         $orderItems = OrderItem::where('order_id', $id)->get();
 
-        return view('pages.order-detail', compact('order', 'createdAt', 'user', 'orderItems', 'websiteInfo'));
+        return view('pages.orders.order-detail', compact('order', 'createdAt', 'user', 'orderItems', 'websiteInfo'));
     }  
 
     public function create()
@@ -66,7 +66,7 @@ class OrderController extends Controller
         // Calcular Numero de orders
         $orderCount = Order::where('user_id', $user->id)->count();
 
-        return view('pages.order-create', compact('shoppingcart', 'products', 'user', 'subtotal', 'total', 'currentDateTime', 'orderCount'));
+        return view('pages.orders.order-create', compact('shoppingcart', 'products', 'user', 'subtotal', 'total', 'currentDateTime', 'orderCount'));
     }
 
     public function store(Request $request)
@@ -126,7 +126,7 @@ class OrderController extends Controller
     public function orderDelete()
     {
 
-        return view('pages.order-delete');
+        return view('pages.orders.order-delete');
     }
 
     public function orderDeletePost(Request $request)
@@ -150,7 +150,7 @@ class OrderController extends Controller
     {
         $order = Order::findOrFail($id);
 
-        return view('pages.order-report', ['order' => $order]);
+        return view('pages.orders.order-report', ['order' => $order]);
     }
 
 }

@@ -3,7 +3,7 @@
     @if (!empty($productsWithDiscounts))
 
         <div class="text-center p-10">
-            <h1 class="font-bold text-4xl mb-4">Products with Discounts</h1>
+            <h1 class="font-bold text-5xl mb-4">Products with Discounts</h1>
             <h1 class="text-3xl">Use the discount code in your shop</h1>
         </div>
 
@@ -33,7 +33,7 @@
                         <div class="mt-2 mb-5 flex items-center justify-between">
                             <p>
                                 @if($product->discount)
-                                    <span class="text-3xl font-bold text-slate-900">${{ ($product->unit_price) * (($product->discount->discount_percentage) / 100) }}</span>
+                                    <span class="text-3xl font-bold text-slate-900">$ {{ $product->unit_price - ($product->unit_price) * (($product->discount->discount_percentage) / 100) }}</span>
                                 @endif
                                 <span class="text-sm text-slate-900 line-through">${{ $product->unit_price }}</span>
                             </p>

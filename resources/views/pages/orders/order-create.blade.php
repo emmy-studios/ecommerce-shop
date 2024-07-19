@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create an Order | ecommerce')
+@section('title', config('app.name') . ' | create an order')
 
 @section('content')
 
@@ -56,8 +56,8 @@
                                             <div class="flex justify-start items-start flex-col space-y-2">
     
                                                 <p class="text-sm dark:text-white leading-none text-gray-800">
-                                                    <span class="dark:text-gray-400 text-purple-600">Size: </span>
-                                                    <select name="products[{{ $product->id }}][size]" required>
+                                                    <span class="dark:text-gray-400 text-purple-600 font-bold">Size: </span>
+                                                    <select name="products[{{ $product->id }}][size]" class="bg-purple-600 text-white w-28 pl-2 ml-2 font-bold" required>
                                                         @foreach($product->productDetails as $detail)
                                                             <option value="{{ $detail->size->product_size }}">{{ $detail->size->product_size }}</option>
                                                         @endforeach
@@ -65,10 +65,13 @@
                                                 </p>
     
                                                 <p class="text-sm dark:text-white leading-none text-gray-800">
-                                                    <span class="dark:text-gray-400 text-purple-600">Color: </span>
-                                                    <select name="products[{{ $product->id }}][color]" required>
+                                                    <span class="dark:text-gray-400 text-purple-600 font-bold">Color: </span>
+                                                    <select name="products[{{ $product->id }}][color]" class="bg-purple-600 text-white w-28 pl-2 ml-2 font-bold" required>
                                                         @foreach($product->productDetails as $detail)
-                                                            <option value="{{ $detail->color->product_color }}">{{ $detail->color->product_color }}</option>
+                                                            <option 
+                                                                value="{{ $detail->color->product_color }}">
+                                                                {{ $detail->color->product_color }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                 </p>
@@ -81,7 +84,11 @@
                                             <p name="price" class="text-base dark:text-white xl:text-lg leading-6">
                                                 ${{ $product->unit_price }}
                                             </p>
-                                            <input type="hidden" name="products[{{ $product->id }}][price]" value="{{ $product->unit_price }}">
+                                            <input 
+                                                type="hidden" 
+                                                name="products[{{ $product->id }}][price]" 
+                                                value="{{ $product->unit_price }}"
+                                                >
     
                                             {{-- Discount --}}
                                             {{--@if ($discount && $discount->products->contains($product->id))
@@ -92,7 +99,7 @@
                                             {{-- Discount --}}
                                             <p class="text-base dark:text-white xl:text-lg leading-6 text-gray-800">
                                                 <input
-                                                    class="w-10" 
+                                                    class="w-16 bg-purple-500 text-white border border-purple-600" 
                                                     type="number" 
                                                     name="products[{{ $product->id }}][quantity]" 
                                                     value="1" 
@@ -126,7 +133,7 @@
                                         </p>
                                         <!--<p class="text-base dark:text-gray-300 leading-4 text-gray-600">-$28.00 (50%)</p>-->
                                         <input 
-                                            class="w-40 border border-purple-500" 
+                                            class="w-40 border border-purple-500 pl-2" 
                                             type="text"
                                             name="discount_code">
                                     </div>

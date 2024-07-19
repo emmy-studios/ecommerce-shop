@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', config('app.name') . '| choose the payment method')
+@section('title', config('app.name') . '| delete the order')
 
 @section('content')
 

@@ -17,7 +17,7 @@ class OrderCancelController extends Controller
         $user = Auth::user();
         $user_email = $user->email;
 
-        return view('pages.order-cancel', compact('user_email'));
+        return view('pages.orders.order-cancel', compact('user_email'));
     }
 
     public function cancelOrderPost(Request $request)

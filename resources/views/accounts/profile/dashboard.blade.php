@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'ecommerce | User Dashboard')
+@section('title', config('app.name') . ' | User Dashboard')
 
 @section('content')
 
@@ -57,6 +57,9 @@
                                     State: <span class="text-sm text-gray-500">{{ $address->state }}</span>
                                 </p>
                                 <p class="mb-2">
+                                    Phone Number: <span class="text-sm text-gray-500">{{ $user->phone_code }} {{ $user->phone_number }}</span>
+                                </p>
+                                <p class="mb-2">
                                     Personal Address: <span class="text-sm text-gray-500">{{ $address->address_line_1 }}</span>
                                 </p>
                                 <p class="mb-2">
@@ -111,9 +114,6 @@
                                     <i class="fa-brands fa-twitter h-6"></i>
                                 </a>
                             </div>
-    
-    
-                            
 
                         </div>
 
@@ -254,7 +254,7 @@
                                                             <td class="py-3 px-6 text-left">
                                                                 <a 
                                                                     class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50" 
-                                                                    href="{{ route('order.detail.show', ['id' => $order->id]) }}">
+                                                                    href="{{ route('order.show', ['id' => $order->id]) }}">
                                                                     INVOICE
                                                                 </a>
                                                             

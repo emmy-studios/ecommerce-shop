@@ -17,7 +17,7 @@ class PaymentController extends Controller
 
         $order = session('order');
 
-        return view('pages.payment-method', compact('order'));
+        return view('pages.payments.payment-method', compact('order'));
     }
 
     public function payByEmail()
@@ -27,7 +27,7 @@ class PaymentController extends Controller
 
         $order = session('order');
 
-        return view('pages.payment-email', compact('user', 'order'));
+        return view('pages.payments.payment-email', compact('user', 'order'));
     }
 
     public function payByEmailStore(Request $request)
@@ -56,7 +56,7 @@ class PaymentController extends Controller
 
     public function orderSuccess()
     {
-        return view('pages.order-success');
+        return view('pages.orders.order-success');
     }
 
     public function payMethodEdit($id)
@@ -66,7 +66,7 @@ class PaymentController extends Controller
         //$oldOrder = session('oldOrder');
         session(['oldOrder' => $oldOrder]);
         
-        return view('pages.payment-method-edit');
+        return view('pages.payments.payment-method-edit');
     }
 
     public function payEmailEdit()
@@ -75,7 +75,7 @@ class PaymentController extends Controller
         $oldOrder = session('oldOrder');
         $user = Auth::user();
 
-        return view('pages.payment-email-edit', compact('oldOrder', 'user'));
+        return view('pages.payments.payment-email-edit', compact('oldOrder', 'user'));
     }
 
     public function payEmailEditStore(Request $request)

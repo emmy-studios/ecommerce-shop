@@ -41,7 +41,7 @@
                         >
                     <div>
                         <h3 class="text-xs">{{ $product->name }}</h3>
-                        <p class="text-xs text-slate-600">{{ $product->unit_price }}</p>
+                        <p class="text-xs text-slate-600">${{ $product->unit_price }}</p>
                     </div>
                     <p class="justify-self-end text-red-600 hover:text-red-400">
                         <i 

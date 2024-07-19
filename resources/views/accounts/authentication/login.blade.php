@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'ecommerce | Welcome Back')
+@section('title', config('app.name') . ' | Welcome Back')
 
 @section('content')
     

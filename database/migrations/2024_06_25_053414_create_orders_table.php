@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
-{
+{ 
     /**
      * Run the migrations.
      */
@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('order_code')->unique();
             $table->decimal('subtotal', 10, 2);
             $table->decimal('total', 10, 2);
-            $table->enum('status', ['pending', 'completed', 'failed', 'canceled', 'processing', 'delivered'])->default('pending');
+            $table->enum('status', ['pending', 'completed', 'failed', 'canceled', 'processing', 'delivered'])->default('processing');
             $table->timestamps();
         });
     }

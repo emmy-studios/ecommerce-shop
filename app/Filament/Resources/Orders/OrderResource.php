@@ -43,12 +43,12 @@ class OrderResource extends Resource
                     ->numeric(),
                 Forms\Components\Select::make('status')
                     ->options([
-                        'pending',
-                        'completed',
-                        'failed',
-                        'canceled',
-                        'processing',
-                        'delivered'
+                        'pending' => 'pending',
+                        'completed' => 'completed',
+                        'failed' => 'failed',
+                        'canceled' => 'canceled',
+                        'processing' => 'processing',
+                        'delivered' => 'delivered'
                     ])
                     ->required(),
             ]);
