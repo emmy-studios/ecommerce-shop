@@ -137,7 +137,15 @@
                                 
 
                             @else
-                            
+                                
+                                <div class="p-4 ml-2">
+                                    <a 
+                                        class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-500 rounded-sm cursor-pointer"
+                                        href="{{ route('order.cancel') }}">
+                                        Cancel an Order
+                                    </a>
+                                </div>
+
                                 <div class="p-4">
                                     <div class="overflow-x-auto">
                                         <table class="min-w-full bg-white border">
@@ -148,7 +156,7 @@
                                                     <th class="py-3 px-6 text-left">Date</th>
                                                     <th class="py-3 px-6 text-left">Time</th>
                                                     <th class="py-3 px-6 text-left">Status</th>
-                                                    <th class="py-3 px-6 text-left">Details</th>
+                                                    <th class="py-3 px-6 text-left">Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-gray-600 text-sm font-light">
@@ -161,26 +169,97 @@
                                                         <td class="py-3 px-6 text-left">{{ $order->created_at->format('d-m-Y') }}</td>
                                                         <td class="py-3 px-6 text-left">{{ $order->created_at->format('h:i A') }}</td>
                                                         
-                                                        @if($order->status === 'pending')
+                                                        {{-- Order Pending --}}
+                                                        {{-- STATUS --}}
+                                                        @if($order->status === 'completed')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
+                                                                    {{ $order->status }}
+                                                                </a>
+                                                                
+                                                            </td>
+                                                        @elseif($order->status === 'canceled')
+                                                        <td class="py-3 px-6 text-left">
+                                                            <a 
+                                                                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
+                                                                {{ $order->status }}
+                                                            </a>
+                                                        </td>
+                                                        @elseif($order->status === 'processing')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50">
+                                                                    {{ $order->status }}
+                                                                </a> 
+                                                                
+                                                            </td>
+                                                        @elseif($order->status === 'delivered')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
+                                                                    {{ $order->status }}
+                                                                </a> 
+                                                                
+                                                            </td>
+                                                        @elseif($order->status === 'pending')
                                                             <td class="py-3 px-6 text-left">
                                                                 <a 
                                                                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
                                                                     {{ $order->status }}
-                                                                </a>
-                                                            
+                                                                </a> 
+                                                                
                                                             </td>
                                                         @else
                                                             <td class="py-3 px-6 text-left">
                                                                 <a 
                                                                     class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50">
                                                                     {{ $order->status }}
+                                                                </a> 
+                                                                
+                                                            </td>
+                                                        @endif
+                                                    
+                                                        
+                                                        
+                                                        {{-- ACTION --}}
+                                                        @if($order->status === 'completed')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50" 
+                                                                    href="{{ route('order.show', ['id' => $order->id]) }}">
+                                                                    INVOICE
                                                                 </a>
                                                             
                                                             </td>
-                                                        @endif
-
-                                                        @if($order->status === 'pending')
-                                                        
+                                                        @elseif($order->status === 'canceled')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50" 
+                                                                    href="{{ route('order.report', ['id' => $order->id]) }}">
+                                                                    REPORT
+                                                                </a>
+                                                            
+                                                            </td>
+                                                        @elseif($order->status === 'processing')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50" 
+                                                                    href="{{ route('order.report', ['id' => $order->id]) }}">
+                                                                    REPORT
+                                                                </a>
+                                                            
+                                                            </td>
+                                                        @elseif($order->status === 'delivered')
+                                                            <td class="py-3 px-6 text-left">
+                                                                <a 
+                                                                    class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50" 
+                                                                    href="{{ route('order.detail.show', ['id' => $order->id]) }}">
+                                                                    INVOICE
+                                                                </a>
+                                                            
+                                                            </td>
+                                                        @elseif($order->status === 'pending')
                                                             <td class="py-3 px-6 text-left">
                                                                 <a 
                                                                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50" 
@@ -189,17 +268,19 @@
                                                                 </a>
                                                             
                                                             </td>
-
                                                         @else
                                                             <td class="py-3 px-6 text-left">
                                                                 <a 
-                                                                    class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-opacity-50"
-                                                                    href="{{ route('order.show', ['id' => $order->id]) }}">
-                                                                    Invoice
+                                                                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50" 
+                                                                    href="{{ route('payment.method.edit', ['id' => $order->id]) }}">
+                                                                    EDIT
                                                                 </a>
                                                             
                                                             </td>
-                                                        @endif
+                                                        @endif                                                        
+                                                        
+                                                        {{-- Order Canceled --}}
+
 
                                                     </tr>
 
@@ -228,7 +309,7 @@
                                         class="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                                         <div class="p-3">
                                             <div
-                                                class="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-tr from-purple-800 to-purple-400 text-center text-white shadow-lg">
+                                                class="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-r from-green-700 to-lime-500 text-center text-white shadow-lg">
                                                 <i class="fa-solid fa-bag-shopping mt-4 h-7 w-16"></i>
                                             </div>
                                             <div class="pt-1 text-right">
@@ -249,7 +330,7 @@
                                         class="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                                         <div class="p-3">
                                             <div
-                                                class="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-tr from-purple-800 to-purple-400 text-center text-white shadow-lg">
+                                                class="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-r from-sky-800 to-purple-400 text-center text-white shadow-lg">
                                                 <i class="fa-regular fa-heart mt-4 h-7 w-16"></i>
                                             </div>
                                             <div class="pt-1 text-right">
@@ -270,7 +351,7 @@
                                         class="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                                         <div class="p-3">
                                             <div
-                                                class="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-tr from-purple-800 to-purple-400 text-center text-white shadow-lg">
+                                                class="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-r from-orange-600 to-amber-300 text-center text-white shadow-lg">
                                                 
                                                 <i class="fa-regular fa-comment mt-4 h-7 w-16"></i>
                                             </div>

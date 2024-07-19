@@ -20,9 +20,7 @@ class OrderController extends Controller
     
     public function index()
     {
-        $user = Auth::user();
-        $orders = Order::where('user_id', Auth::id())->get();
-        return view('pages.order-history', compact('orders'));
+        //
     }
 
     public function show($id)
@@ -120,29 +118,39 @@ class OrderController extends Controller
         $order->status = 'pending'; 
         $order->save();
 
-        // Send Email to the Admin
-        //$websiteInfo = Websiteinfo::first();
-        //$user = Auth::user();
-        /*
-        $data = [
-            'username' => $user->name,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
-            'user_phone' => $user->phone_code . ' ' . $user->phone_number,
-            'order_code' => $order->order_code,
-            'order_subtotal' => $order->subtotal,
-            'total' => $order->total,
-            'website_name' => $websiteInfo->website_name,
-        ];*/ 
-        //Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
-
-         // Store order data in session
          session(['order' => $order]);
 
         return redirect()->route('payment.method');
     }
 
+    public function orderDelete()
+    {
 
+        return view('pages.order-delete');
+    }
+
+    public function orderDeletePost(Request $request)
+    {
+        $oldOrder = session('oldOrder');
+        $order_id = $oldOrder->id;
+        $orderToDelete = Order::findOrfail($order_id);
+
+        if ($orderToDelete) {
+            
+            $orderToDelete->delete();
+
+            return redirect()->route('dashboard');
+        } else {
+            return back()->withErrors('Order Not Found');
+        }
+        
+    }
+
+    public function orderReport($id)
+    {
+        $order = Order::findOrFail($id);
+
+        return view('pages.order-report', ['order' => $order]);
+    }
 
 }

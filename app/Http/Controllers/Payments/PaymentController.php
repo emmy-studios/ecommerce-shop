@@ -50,7 +50,7 @@ class PaymentController extends Controller
             'total' => $order->total,
             'website_name' => config('app.name'),
         ];
-        Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
+        //Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
         return redirect()->route('order.success');
     }
 

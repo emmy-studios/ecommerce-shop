@@ -45,6 +45,20 @@
                             value="{{ $oldOrder->total }}"
                             disabled>
                     </div>
+
+                    <div class="mb-4">
+    
+                        <label class="block text-gray-700 font-bold mb-2" for="currency">
+                            Currency
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="currency" 
+                            type="text"
+                            value="{{ config('paypal.currency') }}"
+                            disabled>
+                    </div>
+
                     <input class="hidden" type="text" name="oldOrderId" value="{{ $oldOrder->id }}">
                     <button
                         type="submit"

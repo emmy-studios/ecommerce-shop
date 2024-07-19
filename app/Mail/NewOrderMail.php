@@ -23,7 +23,7 @@ class NewOrderMail extends Mailable
         $this->data = $data;
     }
 
-    /**
+    /** 
      * Get the message envelope.
      */
     public function envelope(): Envelope
