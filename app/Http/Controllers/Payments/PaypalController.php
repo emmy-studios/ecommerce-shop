@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Payments;
 
 use App\Http\Controllers\Controller;
 use App\Mail\NewOrderMail;
+use App\Models\Core\Websiteinfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -78,6 +79,7 @@ class PaypalController extends Controller
             $currentOrder->save();
 
             // Send Email
+            $websiteInfo = Websiteinfo::first();
             $user = Auth::user();
             $data = [
                 'username' => $user->name,
@@ -92,7 +94,7 @@ class PaypalController extends Controller
                 'payment_method' => 'PayPal',
             ];
             
-            //Mail::to('test01@gmail.com')->send(new NewOrderMail($data));
+            Mail::to($websiteInfo->main_mail)->send(new NewOrderMail($data));
             
             return redirect()->route('order.success');
 
