@@ -14,22 +14,22 @@
 
         <section class="py-20 px-6">
 
-            <div 
-                class="flex flex-col py-20 px-6 md:px-1 space-y-6"
-                >
+            <div class="flex flex-row justify-start">
+                <h1 class="text-3xl font-bold text-black">New Collection</h1>
+            </div>
 
-                <h1 class="text-5xl text-center font-black">New Collection</h1>
-                <p class="text-center">
-                    There are some of our new products. Click on <a class="font-bold" href="{{ route('products') }}">More</a> to see our collections.
-                </p>
- 
+            <div class="flex flex-row justify-end">
+                <a 
+                    class="text-purple-600"
+                    href="{{ route('products') }}">
+                    View More
+                </a>
             </div>
 
             <livewire:products.new-products />
 
         </section>
 
-        {{-- Discounts --}}
         <livewire:discounts.discount />
 
         <section class="my-10">
@@ -38,23 +38,25 @@
 
         </section>
 
-        <section class="py-10 mt-8 px-6">
+        <section class="py-10 mt-8 px-6"> 
 
-            <div 
-                class="flex flex-col py-10 px-6 md:px-1 space-y-6"
-                >
+            <div class="flex flex-row justify-start">
+                <h1 class="text-3xl font-bold text-black">Our Products</h1>
+            </div>
 
-                <h1 class="text-5xl text-center font-black">Our Products</h1>
-                <p class="text-center">
-                    There are some of our products. Click on <a class="font-bold" href="{{ route('products') }}">More</a> to explore our shop.
-                </p>
-
+            <div class="flex flex-row justify-end">
+                <a 
+                    class="text-purple-600"
+                    href="{{ route('products') }}">
+                    View More
+                </a>
             </div>
 
             <livewire:products.our-products />
 
         </section>
 
+        <livewire:news.news-banner />
 
         <x-sections.home.second-banner />
         

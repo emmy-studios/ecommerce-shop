@@ -42,6 +42,12 @@ class News extends Model
         return $this->limitWords($this->content, 20);
     }
 
+    // Accesor para obtener las primeras 20 palabras del contenido
+    public function getTitleLimitAttribute()
+    {
+        return $this->limitWords($this->title, 20);
+    }
+
     // Método para limitar el número de palabras
     private function limitWords($string, $wordLimit)
     {

@@ -1,4 +1,4 @@
-<section class="grid grid-cols-1 gap-4 md:grid-cols-2 py-6 bg-slate-200">
+<section class="grid grid-cols-1 gap-4 md:grid-cols-2 py-6 bg-slate-200 m-4 rounded-xl">
 
     <div class="flex flex-col pt-4 md:pt-40 px-10 space-y-4">
 

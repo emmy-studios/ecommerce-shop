@@ -1,4 +1,4 @@
-<section class="bg-slate-200">
+<section class="bg-slate-200 m-4 rounded-xl">
 
     <div class="grid grid-cols-1 md:grid-cols-2 justify-items-center">
 

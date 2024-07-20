@@ -2,9 +2,16 @@
 
     @if (!empty($productsWithDiscounts))
 
-        <div class="text-center p-10">
-            <h1 class="font-bold text-5xl mb-4">Products with Discounts</h1>
-            <h1 class="text-3xl">Use the discount code in your shop</h1>
+        <div class="flex flex-row justify-start p-10">
+            <h1 class="font-bold text-3xl mb-4 text-black">Products with Discounts</h1>
+        </div>
+
+        <div class="flex flex-row justify-end px-6">
+            <a 
+                class="text-purple-600"
+                href="{{ route('products') }}">
+                View More
+            </a>
         </div>
 
         <div class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-2 gap-x-2 mt-10 mb-5">

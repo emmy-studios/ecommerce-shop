@@ -1,10 +1,16 @@
 <div class="bg-white w-full px-4 pt-8 pb-8" id="faq">
 
-    <h2 class="text-5xl font-bold text-center">Our Brands</h2>
-    <p class="pt-6 pb-8 text-base max-w-2xl text-center m-auto">
-        Lorem ipsum dolor sit amet
-        consectetur adipisicing elit nam maxime quas fugiat tempore blanditiis, eveniet quia accusantium.
-    </p>
+    <div class="flex flex-row justify-start">
+        <h2 class="text-3xl font-bold text-start">Our Brands</h2>
+    </div>
+
+    <div class="flex flex-row justify-end">
+        <a 
+            class="text-purple-600"
+            href="{{ route('brands') }}">
+            View More
+        </a>
+    </div>
 
     <div
         class="mx-auto w-full max-w-4xl bg-white justify-center items-center grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">

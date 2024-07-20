@@ -15,6 +15,7 @@
                     <div class="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
                         <div class="md:5/12 lg:w-5/12">
                             <img 
+                                class="rounded-xl"
                                 src="{{ asset('assets/images/core/about-us01.jpg') }}" 
                                 alt="Abou Us Section Image"
                                 loading="lazy" width="" height="">
@@ -41,7 +42,7 @@
         </section>
 
 
-        <section class="mx-4">
+        <section class="mx-4 my-4">
             <div
                 class="mx-auto max-w-sm mt-20 border-4 border-purple-600 shadow shadow-purple-600/100 p-4 md:p-10 flex flex-col items-center justify-center text-center">
                
