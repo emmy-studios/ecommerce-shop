@@ -45,6 +45,10 @@ class WebsiteinfoResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('second_mail')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('currency')
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('currency_symbol')
+                    ->maxLength(255),
                 Forms\Components\FileUpload::make('main_logo')
                     ->disk('public')
                     ->directory('core-images')
@@ -82,6 +86,10 @@ class WebsiteinfoResource extends Resource
                 Tables\Columns\TextColumn::make('main_mail')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('second_mail')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('currency')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('currency_symbol')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('main_logo')
                     ->searchable(),

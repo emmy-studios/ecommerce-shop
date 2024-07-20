@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('phone_number')->nullable();
             $table->string('main_mail')->nullable();
             $table->string('second_mail')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('currency_symbol')->nullable();
             $table->string('main_logo')->nullable();
             $table->string('admin_panel_logo')->nullable();
             $table->string('signup_logo')->nullable();

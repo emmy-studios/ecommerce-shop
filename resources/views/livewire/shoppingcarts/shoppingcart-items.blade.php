@@ -28,7 +28,11 @@
                     <p class="mt-2 text-gray-600">{{ $product->description }}</p>
                     <div class="mt-4 flex items-center">
                         <div class="flex items-center space-x-2">
-                            <span class="ml-auto font-bold">${{ $product->unit_price }}</span>
+                            @if($websiteInfo && $websiteInfo->currency_symbol)
+                                <span class="ml-auto font-bold">{{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}</span>
+                            @else
+                                <span class="ml-auto font-bold">${{ $product->unit_price }}</span>
+                            @endif
                             <a href="#"><i wire:click="removeProduct({{ $product->id }})" class="fa-solid fa-trash-can"></i></a>
                         </div>
                     </div>
@@ -41,7 +45,11 @@
 
     <div class="flex justify-end items-center mt-8">
         <span class="text-gray-600 mr-4">Subtotal:</span>
-        <span class="text-xl font-bold">${{ $subTotal }}</span>
+        @if($websiteInfo && $websiteInfo->currency_symbol)
+            <span class="text-xl font-bold">{{ $websiteInfo->currency_symbol }}{{ $subTotal }}</span>
+        @else
+            <span class="text-xl font-bold">${{ $subTotal }}</span>
+        @endif
     </div>
 
 </div>

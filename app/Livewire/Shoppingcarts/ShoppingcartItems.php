@@ -2,11 +2,12 @@
 
 namespace App\Livewire\Shoppingcarts;
 
+use App\Models\Core\Websiteinfo;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Shoppingcarts\Shoppingcart;
-
+ 
 class ShoppingcartItems extends Component
 {
 
@@ -40,10 +41,14 @@ class ShoppingcartItems extends Component
 
     public function render()
     {
+
+        $websiteInfo = Websiteinfo::first();
+
         return view('livewire.shoppingcarts.shoppingcart-items', 
         [
             'shoppingcart' => $this->shoppingcart,
             'subTotal' => $this->subTotal,
+            'websiteInfo' => $websiteInfo,
         ]);
     }
 }

@@ -33,9 +33,17 @@
                         <div class="mt-2 mb-5 flex items-center justify-between">
                             <p>
                                 @if($product->discount)
-                                    <span class="text-3xl font-bold text-slate-900">$ {{ $product->unit_price - ($product->unit_price) * (($product->discount->discount_percentage) / 100) }}</span>
+                                    @if($websiteInfo && $websiteInfo->currency_symbol)
+                                        <span class="text-3xl font-bold text-slate-900">{{ $websiteInfo->currency_symbol }} {{ $product->unit_price - ($product->unit_price) * (($product->discount->discount_percentage) / 100) }}</span>
+                                    @else
+                                        <span class="text-3xl font-bold text-slate-900">$ {{ $product->unit_price - ($product->unit_price) * (($product->discount->discount_percentage) / 100) }}</span>                                
+                                    @endif
                                 @endif
-                                <span class="text-sm text-slate-900 line-through">${{ $product->unit_price }}</span>
+                                @if($websiteInfo && $websiteInfo->currency_symbol)
+                                    <span class="text-sm text-slate-900 line-through">{{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}</span>
+                                @else
+                                    <span class="text-sm text-slate-900 line-through">${{ $product->unit_price }}</span>
+                                @endif
                             </p>
                         
                         </div>

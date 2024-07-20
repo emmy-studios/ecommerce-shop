@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Products;
 
+use App\Models\Core\Websiteinfo;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -61,7 +62,13 @@ class ProductList extends Component
 
         $products = $query->paginate(9);  
 
-        return view('livewire.products.product-list', ['products' => $products]);
+        $websiteInfo = Websiteinfo::first();
+
+        return view('livewire.products.product-list', 
+        [
+            'products' => $products,
+            'websiteInfo' => $websiteInfo,
+        ]);
     }
 } 
  

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Shoppingcarts;
 
+use App\Models\Core\Websiteinfo;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,11 +43,15 @@ class ShoppingcartDropdown extends Component
 
     public function render()
     {
+
+        $websiteInfo = Websiteinfo::first();
+
         return view('livewire.shoppingcarts.shoppingcart-dropdown', 
         [
             'shoppingcartProducts' => $this->shoppingcartProducts,
             'totalProducts' => $this->totalProducts,
             'totalPrice' => $this->totalPrice,
+            'websiteInfo' => $websiteInfo,
         ]);
     }
 }

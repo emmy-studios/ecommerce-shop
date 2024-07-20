@@ -26,9 +26,13 @@
                         {{ $totalProducts }}
                     </p>
                 </div>
-                <p class="pt-2">Total: <span class="text-slate-600">${{ $totalPrice }}</span></p>
+                @if($websiteInfo && $websiteInfo->currency_symbol)
+                    <p class="pt-2">Total: <span class="text-slate-600">{{ $websiteInfo->currency_symbol }}{{ $totalPrice }}</span></p>
+                @else
+                    <p class="pt-2">Total: <span class="text-slate-600">${{ $totalPrice }}</span></p>
+                @endif
             </div>
-
+ 
             {{-- Products --}}
 
             @forelse($shoppingcartProducts as $product)
@@ -41,7 +45,11 @@
                         >
                     <div>
                         <h3 class="text-xs">{{ $product->name }}</h3>
-                        <p class="text-xs text-slate-600">${{ $product->unit_price }}</p>
+                        @if($websiteInfo && $websiteInfo->currency_symbol)
+                            <p class="text-xs text-slate-600">{{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}</p>
+                        @else
+                            <p class="text-xs text-slate-600">${{ $product->unit_price }}</p>
+                        @endif
                     </div>
                     <p class="justify-self-end text-red-600 hover:text-red-400">
                         <i 

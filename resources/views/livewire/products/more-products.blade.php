@@ -19,7 +19,11 @@
                     <h3 class="text-gray-700 uppercase">
                         <a href="{{ route('product.show', ['id' => $product->id]) }}">{{ $product->name }}</a>
                     </h3>
-                    <span class="text-gray-500 mt-2">${{ $product->unit_price }}</span>
+                    @if($websiteInfo && $websiteInfo->currency_symbol)
+                        <span class="text-gray-500 mt-2">{{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}</span>
+                    @else
+                        <span class="text-gray-500 mt-2">${{ $product->unit_price }}</span>
+                    @endif
                 </div>
             </div>
 

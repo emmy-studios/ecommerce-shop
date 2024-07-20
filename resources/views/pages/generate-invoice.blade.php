@@ -120,7 +120,8 @@
                         <tr>
                             <td class="product-name">{{ $item->product->name }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>${{ $item->product->unit_price }}</td>
+                            <td>{{ $item->product->unit_price }}</td>
+                            
                         </tr>
                         @endforeach
                     </tbody>
@@ -128,8 +129,9 @@
             </div>
 
             <div class="order-summary">
-                <p><strong>Subtotal:</strong> ${{ $order->subtotal }}</p>
-                <p><strong>Total:</strong> ${{ $order->total }}</p>
+                <p><strong>Subtotal:</strong> {{ $order->subtotal }}</p>
+                <p><strong>Total:</strong> {{ $order->total }}</p>
+                <p><strong>Currency:</strong> {{ config('paypal.currency') }}</p>
             </div>
         </div>
     </body> 

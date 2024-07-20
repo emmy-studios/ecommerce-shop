@@ -47,7 +47,11 @@
 
                         <h3 class="text-gray-700 uppercase text-lg">{{ $product->name }}</h3>
                         <p class="text-sm">{{ $product->description }}</p>
-                        <span class="text-gray-500 mt-3">${{ $product->unit_price }}</span>
+                        @if($websiteInfo && $websiteInfo->currency_symbol)
+                            <span class="text-gray-500 mt-3">{{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}</span>
+                        @else
+                            <span class="text-gray-500 mt-3">${{ $product->unit_price }}</span>
+                        @endif
                         <hr class="my-3">
                         
                         <div class="mt-2">
@@ -60,18 +64,6 @@
                         <div class="mt-3">
                             <label class="text-gray-700 text-sm" for="count">Color:</label>
                             <div class="flex items-center mt-1 space-x-2">
-
-                                {{--@foreach($product->productDetails as $detail)
-                                    @if($detail->color)
-                                    <p class="">
-                                        {{ $detail->color->product_color }}
-                                    </p>
-                                    @else
-                                    <p class="">
-                                        None
-                                    </p>
-                                    @endif
-                                @endforeach--}}
                                 @foreach($uniqueColors as $detail)
 
                                     @if($detail->color)

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome | Ecommerce Website')
+@section('title', 'Welcome | ' . config('app.name'))
     
 @section('content')
     
@@ -22,7 +22,7 @@
                 <p class="text-center">
                     There are some of our new products. Click on <a class="font-bold" href="{{ route('products') }}">More</a> to see our collections.
                 </p>
-
+ 
             </div>
 
             <livewire:products.new-products />

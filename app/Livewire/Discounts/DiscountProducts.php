@@ -2,27 +2,21 @@
 
 namespace App\Livewire\Discounts;
 
+use App\Models\Core\Websiteinfo;
 use App\Models\Discounts\Discount;
 use Livewire\Component;
 
 class DiscountProducts extends Component
 {
-    /*public function render()
-    {
-        $discounts = Discount::with('products')->get();
-        $productsWithDiscount = $discounts->pluck('products')->flatten();
-
-        return view('livewire.discounts.discount-products', 
-        [
-            'discounts' => $discounts, 'productsWithDiscount' => $productsWithDiscount
-        ]);
-    }*/
-
+    
     public $productsWithDiscounts;
+    public $websiteInfo;
 
     public function mount()
     {
         $discounts = Discount::with('products')->get();
+        $websiteInfo = Websiteinfo::first();
+
         $this->productsWithDiscounts = [];
 
         foreach ($discounts as $discount) {

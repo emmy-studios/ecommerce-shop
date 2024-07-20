@@ -39,11 +39,19 @@
                     </p>
                     <p class="flex justify-between">
                         <span class="text-gray-400">Sub Total:</span>
-                        <span>${{ $order->subtotal }}</span>
+                        @if($websiteInfo && $websiteInfo->currency_symbol)
+                            <span>{{ $websiteInfo->currency_symbol }}{{ $order->subtotal }}</span>
+                        @else
+                            <span>${{ $order->subtotal }}</span>
+                        @endif
                     </p>
                     <p class="flex justify-between">
                         <span class="text-gray-400">Total:</span>
-                        <span>${{ $order->total }}</span>
+                        @if($websiteInfo && $websiteInfo->currency_symbol)
+                            <span>{{ $websiteInfo->currency_symbol }}{{ $order->total }}</span>
+                        @else
+                            <span>${{ $order->total }}</span>
+                        @endif
                     </p>
                 </div>
                 {{-- Products Tables --}}
@@ -63,7 +71,11 @@
                                 <tr class="flex">
                                     <td class="flex-1 py-1">{{ $item->product->name }}</td>
                                     <td class="min-w-[44px]">{{ $item->quantity }}</td>
-                                    <td class="min-w-[44px]">${{ $item->product->unit_price }}</td>
+                                    @if($websiteInfo && $websiteInfo->currency_symbol)
+                                        <td class="min-w-[44px]">{{ $websiteInfo->currency_symbol }}{{ $item->product->unit_price }}</td>
+                                    @else
+                                        <td class="min-w-[44px]">${{ $item->product->unit_price }}</td>
+                                    @endif
                                 </tr>
 
                             @endforeach

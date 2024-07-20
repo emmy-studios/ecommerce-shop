@@ -40,6 +40,7 @@ class OrderController extends Controller
     {   
         // Obtener Información del usuario
         $user = Auth::user();
+        $websiteInfo = Websiteinfo::first();
 
         // Obtener el carrito de compras del usuario
         $shoppingcart = Shoppingcart::where('user_id', Auth::id())->first();
@@ -66,7 +67,7 @@ class OrderController extends Controller
         // Calcular Numero de orders
         $orderCount = Order::where('user_id', $user->id)->count();
 
-        return view('pages.orders.order-create', compact('shoppingcart', 'products', 'user', 'subtotal', 'total', 'currentDateTime', 'orderCount'));
+        return view('pages.orders.order-create', compact('shoppingcart', 'products', 'user', 'subtotal', 'total', 'currentDateTime', 'orderCount', 'websiteInfo'));
     }
 
     public function store(Request $request)

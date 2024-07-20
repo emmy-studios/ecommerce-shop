@@ -38,8 +38,6 @@
                                 <div
                                     class="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full">
                                     <div class="pb-4 md:pb-8 w-full md:w-40">
-                                        
-
 
                                         <img 
                                             class="w-32 md:block" 
@@ -80,10 +78,15 @@
                                         </div>
     
                                         <div class="flex justify-between space-x-8 items-start w-full">
-    
-                                            <p name="price" class="text-base dark:text-white xl:text-lg leading-6">
-                                                ${{ $product->unit_price }}
-                                            </p>
+                                            @if($websiteInfo && $websiteInfo->currency_symbol)
+                                                <p name="price" class="text-base dark:text-white xl:text-lg leading-6">
+                                                    {{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}
+                                                </p>
+                                            @else
+                                                <p name="price" class="text-base dark:text-white xl:text-lg leading-6">
+                                                    ${{ $product->unit_price }}
+                                                </p>
+                                            @endif
                                             <input 
                                                 type="hidden" 
                                                 name="products[{{ $product->id }}][price]" 
@@ -126,7 +129,15 @@
                                     class="flex justify-center items-center w-full space-y-4 flex-col border-gray-200 border-b pb-4">
                                     <div class="flex justify-between w-full">
                                         <p class="text-base dark:text-white leading-4 text-gray-800">Subtotal</p>
-                                        <p class="text-base dark:text-gray-300 leading-4 text-gray-600">${{ $subtotal }}</p>
+                                        @if($websiteInfo && $websiteInfo->currency_symbol)
+                                            <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
+                                                {{ $websiteInfo->currency_symbol }}{{ $subtotal }}
+                                            </p>
+                                        @else
+                                            <p class="text-base dark:text-gray-300 leading-4 text-gray-600">
+                                                ${{ $subtotal }}
+                                            </p>
+                                        @endif
                                     </div>
                                     <div class="flex justify-between items-center w-full">
                                         <p class="text-base dark:text-white leading-4 text-gray-800">Discount Code
@@ -146,9 +157,15 @@
                                     <p class="text-base dark:text-white font-semibold leading-4 text-gray-800">
                                         Total
                                     </p>
-                                    <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                                        ${{ $total }}
-                                    </p>
+                                    @if($websiteInfo && $websiteInfo->currency_symbol)
+                                        <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
+                                            {{ $websiteInfo->currency_symbol }}{{ $total }}
+                                        </p>
+                                    @else
+                                        <p class="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
+                                            ${{ $total }}
+                                        </p>
+                                    @endif
                                 </div>
                             </div>
                             <!-- Order Summary Ends -->

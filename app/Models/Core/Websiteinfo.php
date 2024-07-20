@@ -19,6 +19,8 @@ class Websiteinfo extends Model
         'phone_code',
         'phone_number',
         'main_mail',
+        'currency',
+        'currency_symbol',
         'main_logo',
         'admin_panel_logo',
         'signup_logo',

@@ -48,11 +48,15 @@
                         </p>
 
                         <div class="flex items-center">
-
-                            <p class="text-lg font-semibold text-black cursor-auto my-3">
-                                ${{ $product->unit_price }}
-                            </p>
-
+                            @if($websiteInfo && $websiteInfo->currency_symbol)
+                                <p class="text-lg font-semibold text-black cursor-auto my-3">
+                                    {{ $websiteInfo->currency_symbol }}{{ $product->unit_price }}
+                                </p>
+                            @else
+                                <p class="text-lg font-semibold text-black cursor-auto my-3">
+                                    ${{ $product->unit_price }}
+                                </p>
+                            @endif
                             <!--<del>
                                 <p class="text-sm text-gray-600 cursor-auto ml-2">$199</p>
                             </del>-->
