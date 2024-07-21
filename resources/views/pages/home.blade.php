@@ -9,8 +9,10 @@
     <main>
 
         <x-sections.home.hero />
-        
-        <x-sections.home.first-banner />
+
+        <livewire:core.banners.banner />
+
+        <livewire:core.banners.banner-grid />
 
         <section class="py-20 px-6">
 
@@ -58,8 +60,6 @@
 
         <livewire:news.news-banner />
 
-        <x-sections.home.second-banner />
-        
         <section class="pt-4">
 
             <livewire:brands.brands-banner />

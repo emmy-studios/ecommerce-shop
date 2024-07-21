@@ -50,10 +50,10 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 items-center">
                 
-                <div class="flex flex-col justify-start space-y-4">
-                    <h1 class="text-5xl font-bold text-white">Apply the discount and get </h1>
-                    <p class="text-white text-4xl">{{ floor($lastDiscount->discount_percentage) }}%</p>                    
-                    <p class="text-3xl font-bold text-white">In your next shop</p>
+                <div class="flex flex-col justify-center space-y-4">
+                    <h1 class="text-5xl font-bold text-center text-white">Apply the discount and get </h1>
+                    <p class="text-white text-center text-4xl">{{ floor($lastDiscount->discount_percentage) }}%</p>                    
+                    <p class="text-3xl text-center font-bold text-white">In your next shop</p>
                 </div>
 
                 <div class="flex flex-col items-center space-y-2">
