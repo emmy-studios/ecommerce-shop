@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('first_text')->nullable();
             $table->string('second_text')->nullable();
             $table->string('banner_image')->nullable();
-            $table->string('button_text')->nullable();
-            $table->string('button_url')->nullable();
             $table->timestamps();
         });
     }

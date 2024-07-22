@@ -55,8 +55,8 @@ Route::get('/wishlist/{id}', [WishlistController::class, 'show'])->name('wishlis
 
 // Main App Routes
 Route::get('/', [CoreController::class, 'index'])->name('home');
-Route::get('/about-us', [CoreController::class, 'aboutUs'])->name('about.us');
-Route::post('/about-us', [CoreController::class, 'contactPost'])->name('contact.post');
+Route::get('/contact-us', [CoreController::class, 'contactUs'])->name('contact.us');
+Route::post('/contact-us/post', [CoreController::class, 'contactPost'])->name('contact.post');
 Route::get('/brands', [CoreController::class, 'brands'])->name('brands');
 
 // Authentication Routes

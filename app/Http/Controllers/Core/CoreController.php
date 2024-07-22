@@ -15,12 +15,12 @@ class CoreController extends Controller
     {
         return view('pages.home');
     }
-    
-    public function aboutUs()
+
+    public function contactUs()
     {
         $websiteInfo = Websiteinfo::first();
 
-        return view('pages.about-us', ['websiteInfo' => $websiteInfo]);
+        return view('pages.contact-us', ['websiteInfo' => $websiteInfo]);
     }
 
     public function contactPost(Request $request)
@@ -39,7 +39,7 @@ class CoreController extends Controller
         // Success Send Flash Message
         session()->flash('successEmail', 'The message was send successfully!');
 
-        return redirect()->route('about.us');
+        return redirect()->route('contact.us');
     }
 
     public function brands()
