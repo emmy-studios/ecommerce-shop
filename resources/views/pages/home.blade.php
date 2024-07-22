@@ -14,7 +14,7 @@
 
         <livewire:core.banners.banner-grid />
 
-        <section class="py-20 px-6">
+        <section class="py-20 px-4">
 
             <div class="flex flex-row justify-start">
                 <h1 class="text-3xl font-bold text-black">New Collection</h1>
@@ -40,7 +40,7 @@
 
         </section>
 
-        <section class="py-10 mt-8 px-6"> 
+        <section class="py-10 mt-8 px-4"> 
 
             <div class="flex flex-row justify-start">
                 <h1 class="text-3xl font-bold text-black">Our Products</h1>
