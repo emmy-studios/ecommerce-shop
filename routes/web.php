@@ -72,8 +72,8 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout
 
 // Profile Routes
 Route::get('/dashboard', [ProfileController::class, 'dashboard'])->name('dashboard')->middleware('auth'); 
-Route::get('/edit-profile', [ProfileController::class, 'profileForm'])->name('profile.edit')->middleware('auth');
 Route::post('/profile-update', [ProfileController::class, 'profileUpdate'])->name('profile.update')->middleware('auth');
+Route::get('/edit-profile', [ProfileController::class, 'profileForm'])->name('profile.edit')->middleware('auth');
 
 // Invoices Routes
 Route::get('/generate-invoice/{id}', [InvoiceController::class, 'generateInvoice'])->name('invoice.generate')->middleware('auth');

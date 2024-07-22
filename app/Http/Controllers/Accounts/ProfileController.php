@@ -32,7 +32,7 @@ class ProfileController extends Controller
         $socialmedialinks = $user->socialmedialink;
         $addressInfo = $user->address;
  
-        return view('accounts.profile.profile-form', compact('user', 'socialmedialinks', 'addressInfo'));
+        return view('accounts.profile.profile-edit', compact('user', 'socialmedialinks', 'addressInfo'));
     }
 
     public function profileUpdate(Request $request)
