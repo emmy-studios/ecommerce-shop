@@ -8,7 +8,7 @@
 
     <main>
 
-        <section>
+        <section class="pb-8">
 
             <div class="mb-16">
             

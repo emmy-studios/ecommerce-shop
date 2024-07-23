@@ -81,16 +81,16 @@
                             <textarea 
                                 id="bio" 
                                 rows="6" 
-                                class="bg-gray-50 border border-purple-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-4">
-                                {{ $user->bio }}
-                            </textarea>
+                                class="bg-gray-50 border border-purple-300 text-gray-900 sm:text-sm rounded-lg focus:ring-purple-600 focus:border-purple-600 block w-full p-4">{{ $user->bio }}</textarea>
                             @error('bio')
                                 <p class="pl-6 pt-2 text-red-500 text-sm">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <div class="flex items-center space-x-6">
+
+                            <div class="flex md:flex-row flex-col items-center space-x-6">
+                                
                                 <div class="shrink-0">
                                     <img 
                                         id='prrofile_image' 
@@ -99,7 +99,7 @@
                                         alt="Current profile photo" />
                                 </div>
 
-                                <label class="block">
+                                <label class="block pt-2 md:pt-0">
                                     <span class="sr-only">Choose profile photo</span>
                                     <input 
                                         type="file" 
@@ -113,7 +113,9 @@
                                     hover:file:bg-violet-100
                                     "/>
                                 </label>
+
                             </div>
+                            
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
