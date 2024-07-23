@@ -9,7 +9,8 @@
 
     <main>
 
-        <x-sections.products.hero />
+        <!--<x-sections.products.hero />-->
+        <livewire:core.hero.product-hero />
 
         <section>
 
