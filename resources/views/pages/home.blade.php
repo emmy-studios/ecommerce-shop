@@ -8,7 +8,6 @@
 
     <main>
 
-        <!--<x-sections.home.hero />-->
         <livewire:core.hero.home-hero />
 
         <livewire:core.banners.banner />
