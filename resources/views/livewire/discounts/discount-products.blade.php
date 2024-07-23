@@ -3,7 +3,7 @@
     @if (!empty($productsWithDiscounts))
 
         <div class="flex flex-row justify-start p-10">
-            <h1 class="font-bold text-3xl mb-4 text-black">Products with Discounts</h1>
+            <h1 class="font-bold text-2xl mb-4 text-black">Products with Discounts</h1>
         </div>
 
         <div class="flex flex-row justify-end px-6">

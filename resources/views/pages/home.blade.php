@@ -17,7 +17,7 @@
         <section class="py-20 px-4">
 
             <div class="flex flex-row justify-start">
-                <h1 class="text-3xl font-bold text-black">New Collection</h1>
+                <h1 class="text-2xl font-bold text-black">New Collection</h1>
             </div>
 
             <div class="flex flex-row justify-end">
@@ -38,12 +38,12 @@
 
             <livewire:discounts.discount-products />
 
-        </section>
+        </section> 
 
         <section class="py-10 mt-8 px-4"> 
 
             <div class="flex flex-row justify-start">
-                <h1 class="text-3xl font-bold text-black">Our Products</h1>
+                <h1 class="text-2xl font-bold text-black">Our Products</h1>
             </div>
 
             <div class="flex flex-row justify-end">
