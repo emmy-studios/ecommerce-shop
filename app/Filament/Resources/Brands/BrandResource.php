@@ -38,11 +38,6 @@ class BrandResource extends Resource
                     ->directory('brands-images')
                     ->image()
                     ->imageEditor(),
-                Forms\Components\FileUpload::make('image_url')
-                    ->disk('public')
-                    ->directory('brands-images')
-                    ->image()
-                    ->imageEditor(),
             ]);
     }
 
@@ -55,7 +50,6 @@ class BrandResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('logo_url'),
-                Tables\Columns\ImageColumn::make('image_url'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
