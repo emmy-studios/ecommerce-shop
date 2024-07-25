@@ -19,7 +19,7 @@ class ProfileController extends Controller
         $address = $user->address;
         $socialmediaurls = $user->socialmedialink;
         $wishlist = $user->wishlist;
-        $orders = $user->orders()->paginate(8);    
+        $orders = $user->orders()->orderBy('created_at', 'desc')->paginate(8);    
         $reviews = Review::where('user_id', '=', $user->id)->get();    
 
         return view('accounts.profile.dashboard', compact('user', 'wishlist', 'address', 'orders', 'socialmediaurls', 'reviews'));

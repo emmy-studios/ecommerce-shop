@@ -8,15 +8,19 @@ use App\Models\Discounts\Discount as DiscountModel;
 class Discount extends Component
 {
 
-    public $lastDiscount;
+    public $discounts;
 
     public function mount()
     {
-        $this->lastDiscount = DiscountModel::latest()->first();
+        
+        $this->discounts = DiscountModel::all();
+
     }
 
     public function render()
     {
-        return view('livewire.discounts.discount');
+        return view('livewire.discounts.discount', [
+            'discounts' => $this->discounts,
+        ]);
     }
 }
