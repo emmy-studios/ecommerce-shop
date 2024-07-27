@@ -47,6 +47,8 @@ class WebsiteinfoResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency')
                     ->maxLength(255),
+                Forms\Components\TextInput::make('contact_address')
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('currency_symbol')
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('main_logo')
@@ -61,7 +63,12 @@ class WebsiteinfoResource extends Resource
                     ->imageEditor(),
                 Forms\Components\FileUpload::make('signup_logo')
                     ->disk('public')
-                    ->directory('news-images')
+                    ->directory('core-images')
+                    ->image()
+                    ->imageEditor(),
+                Forms\Components\FileUpload::make('contact_image')
+                    ->disk('public')
+                    ->directory('core-images')
                     ->image()
                     ->imageEditor(),
             ]);
@@ -78,6 +85,8 @@ class WebsiteinfoResource extends Resource
                 Tables\Columns\TextColumn::make('instagram_url')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('twitter_url')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('contact_address')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tiktok')
                     ->searchable(),

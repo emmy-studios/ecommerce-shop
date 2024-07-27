@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('main_logo')->nullable();
             $table->string('admin_panel_logo')->nullable();
             $table->string('signup_logo')->nullable();
+            $table->string('contact_address')->nullable();
+            $table->string('contact_image')->nullable();
             $table->timestamps();
         });
     }

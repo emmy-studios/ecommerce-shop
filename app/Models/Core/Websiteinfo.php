@@ -25,5 +25,7 @@ class Websiteinfo extends Model
         'admin_panel_logo',
         'signup_logo',
         'second_mail',
+        'contact_image',
+        'contact_address',
     ];
 }

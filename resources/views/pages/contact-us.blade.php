@@ -3,138 +3,137 @@
 @section('title', config('app.name') . ' | Contact Us')
 
 @section('content')
-    
+
     <x-partials.navigation />
 
     <main>
- 
-        <div class="m-10">
-            <div
-                class="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-white shadow-[0_10px_20px_rgba(240,_46,_170,_0.7)] rounded-md text-[#333] font-[sans-serif]">
-                <div>
-                    <h1 class="text-3xl font-extrabold">Let's Talk</h1>
-                    <p class="text-sm text-gray-400 mt-3">
-                        Have some big idea or brand to develop and need help? Then reach
-                        out we'd love to hear about your project and provide help.
-                    </p>
 
-                    <div class="mt-12">
-                        <h2 class="text-lg font-extrabold">Email</h2>
-                        <ul class="mt-3">
-                            <li class="flex items-center">
-                                <div
-                                    class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                                    <i class="fa-regular fa-envelope text-purple-600"></i>
+        <section class="py-24">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 grid-cols-1">
+                    <div class="lg:mb-0 mb-10">
+                        <div class="group w-full h-full">
+                            
+                            <div class="relative h-full">
+                                @if($websiteInfo && $websiteInfo->contact_image)
+                                    <img 
+                                        src="{{ asset('storage/' . $websiteInfo->contact_image) }}" 
+                                        alt="Contact us image"
+                                        class="w-full h-full lg:rounded-l-2xl rounded-2xl bg-blend-multiply bg-indigo-700" />
+                                @else
+                                    <img 
+                                        src="https://pagedone.io/asset/uploads/1696488602.png" 
+                                        alt="ContactUs tailwind section"
+                                        class="w-full h-full lg:rounded-l-2xl rounded-2xl bg-blend-multiply bg-indigo-700" />
+                                @endif
+                                <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">
+                                    Contact us</h1>
+                                <div class="absolute bottom-0 w-full lg:p-11 p-5">
+                                    <div class="bg-white rounded-lg p-6 block">
+                                        <a href="javascript:;" class="flex items-center mb-6">
+                                            <i class="fa-solid fa-phone"></i>
+                                            @if($websiteInfo && $websiteInfo->phone_code && $websiteInfo->phone_number)
+                                                <h5 class="text-black md:text-base text-[10px] font-normal leading-6 ml-5">
+                                                    {{ $phone_code }} {{ $phone_number }}
+                                                </h5>
+                                            @else
+                                                <h5 class="text-black md:text-base text-[10px] font-normal leading-6 ml-5">
+                                                    (+506) 6041-1911
+                                                </h5>
+                                            @endif
+                                        </a>
+                                        <a href="javascript:;" class="flex items-center flex-wrap mb-6">
+                                            <i class="fa-solid fa-envelope"></i>
+                                            @if($websiteInfo && $websiteInfo->main_mail)
+                                                <h5 class="text-black font-normal md:text-base text-[10px] leading-6 ml-5">
+                                                    {{ $websiteInfo->main_mail }}
+                                                </h5>
+                                            @else
+                                                <h5 class="text-black md:text-base text-[10px] font-normal leading-6 ml-5">
+                                                    ecommerce@info.com
+                                                </h5>
+                                            @endif
+                                        </a>
+                                        <a href="javascript:;" class="flex items-center">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            @if($websiteInfo && $websiteInfo->contact_address)
+                                                <h5 class="text-black md:text-base text-[10px] font-normal leading-6 ml-5">
+                                                    {{ $websiteInfo->contact_address }}
+                                                </h5>
+                                            @else
+                                                <h5 class="text-black md:text-base text-[10px] font-normal leading-6 ml-5">
+                                                    654 Sycamore Avenue, Meadowville, WA 76543
+                                                </h5>
+                                            @endif
+                                        </a> 
+                                    </div>
                                 </div>
-                                <a target="blank" class="text-purple-600 text-sm ml-3">
-                                    <small class="block">Mail</small>
-                                    @if($websiteInfo && $websiteInfo->main_mail)
-                                        <strong class="md:text-sm text-[10px]">{{ $websiteInfo->main_mail }}</strong>
-                                    @else
-                                        <strong lass="md:text-sm text-[10px]">ecommerce@gmail.com</strong>
-                                    @endif
-                                </a>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="mt-12">
-                        <h2 class="text-lg font-extrabold">Whatsapp</h2>
-                        <ul class="mt-3">
-                            <li class="flex items-center">
-                                <div
-                                    class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                                    <i class="fa-regular fa-envelope text-purple-600"></i>
-                                </div>
-                                <a target="blank" class="text-purple-600 text-sm ml-3">
-                                    <small class="block">Whatsapp</small>
-                                    @if($websiteInfo && $websiteInfo->phone_code && $websiteInfo->phone_number)
-                                        <strong class="md:text-sm text-[10px]">{{ $websiteInfo->phone_code }} {{ $websiteInfo->phone_number }}</strong>
-                                    @else
-                                        <strong class="md:text-sm text-[10px]">+506 1234 5678</strong>
-                                    @endif
-                                </a>
-                            </li>
-                        </ul>
+                    <div class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
+
+                        <h2 class="text-purple-600 font-manrope text-4xl font-semibold leading-10 mb-11">
+                            Send Us A Message
+                        </h2>
+
+                        @if(session()->has('successEmail'))
+                            <p class="text-center my-4 text-red-500">
+                                {{ session()->get('successEmail') }}
+                            </p>
+                        @endif
+
+                        <form action="{{ route('contact.post') }}" method="post">
+                            
+                            @csrf
+
+                            <input 
+                                type="text"
+                                class="w-full h-12 text-gray-600 placeholder-gray-400  shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                                name="name"
+                                placeholder="Name">
+                            @error('name')
+                                <p class="text-sm text-red-600 pl-4 py-2">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            <input 
+                                type="email"
+                                name="email"
+                                class="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                                placeholder="Email">
+                            @error('email')
+                                <p class="text-sm text-red-600 pl-4 py-2">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            <input 
+                                type="text"
+                                name="message"
+                                class="w-full h-12 text-gray-600 placeholder-gray-400 bg-transparent text-lg shadow-sm font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
+                                placeholder="Message">
+                            @error('message')
+                                <p class="text-sm text-red-600 pl-4 py-2">
+                                    {{ $message }}
+                                </p>
+                            @enderror
+                            <button
+                                type="submit"
+                                class="w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-purple-800 bg-purple-600 shadow-sm">
+                                Send
+                            </button>
+
+                        </form>
+
                     </div>
-                    
-                    <div class="mt-12">
-                        <h2 class="text-lg font-extrabold">Socials</h2>
-                        <ul class="flex mt-3 space-x-4">
-                            <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                                <a href="javascript:void(0)">
-                                    <i class="fa-brands fa-facebook-f text-purple-600"></i>
-                                </a>
-                            </li>
-                            <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                                <a href="javascript:void(0)">
-                                    <i class="fa-brands fa-instagram text-purple-600"></i>
-                                </a>
-                            </li>
-                            <li class="bg-[#e6e6e6cf] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-                                <a href="javascript:void(0)">
-                                    <i class="fa-brands fa-linkedin-in text-purple-600"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
-    
-                <form
-                    action="{{ route('contact.post') }}"
-                    method="POST"  
-                    class="ml-auo space-y-4">
-                    
-                    @csrf
-                    
-                    @if (session('successEmail'))    
-                        <p class="text-red-600 text-sm">{{ session('successEmail') }}</p>
-                    @endif
+        </section>
 
-                    <input 
-                        name="name" 
-                        type="text" 
-                        id="name"
-                        placeholder="Name"  
-                        value="{{ old('name') }}"
-                        class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
-                    @error('name')
-                        <p class="ml-3 mt-1 text-red-600 text-sm">{{ $message }}</p>
-                    @enderror
-                    <input 
-                        name="email" 
-                        id="email" 
-                        type="email"
-                        value="{{ old('email') }}"
-                        placeholder='Email'
-                        class="w-full rounded-md py-2.5 px-4 border text-sm outline-[#007bff]" />
-                    @error('email')
-                        <p class="ml-3 mt-1 text-red-600 text-sm">{{ $message }}</p>
-                    @enderror
-                    <textarea 
-                        placeholder='Message' 
-                        rows="6"
-                        name="message"
-                        id="message"
-                        class="w-full rounded-md px-4 border text-sm pt-2.5 outline-[#007bff]">
-                    </textarea>
-                    @error('message')
-                        <p class="ml-3 mt-1 text-red-600 text-sm">{{ $message }}</p>
-                    @enderror
-                    
-                    <button 
-                        type="submit"
-                        class="text-white bg-purple-500 hover:bg-purple-600 font-semibold rounded-md text-sm px-4 py-2.5 w-full">
-                        Send
-                    </button>
-    
-                </form>
-    
-            </div>
-        </div>
 
     </main>
 
-    <x-partials.footer /> 
+    <x-partials.footer />
 
 @endsection
