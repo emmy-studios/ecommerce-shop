@@ -1,4 +1,4 @@
-<div class="w-full dark:bg-gray-900">
+<div class="dark:bg-gray-900">
 
     <div class="w-full mx-auto py-4 px-4 md:px-8">
         

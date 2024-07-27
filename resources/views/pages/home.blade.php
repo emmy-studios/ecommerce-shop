@@ -58,9 +58,9 @@
 
         </section>
 
-        <livewire:news.news-banner />
+        <livewire:news.news-banner /> 
 
-        <section class="pt-4">
+        <section class="pt-4"> 
 
             <livewire:brands.brands-banner />
 
