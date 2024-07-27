@@ -1,4 +1,4 @@
-<div class="bg-white w-full px-4 pt-8 pb-8 mx-4" id="faq">
+<div class="bg-white px-4 pt-8 pb-8 mx-4">
 
     <div class="flex flex-row justify-start">
         <h2 class="text-3xl font-bold text-start">Our Brands</h2>

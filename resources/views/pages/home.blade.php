@@ -8,13 +8,13 @@
 
     <main>
 
-        <livewire:core.hero.home-hero />
+        <livewire:core.hero.home-hero /> 
 
         <livewire:core.banners.banner />
 
         <livewire:core.banners.banner-grid />
 
-        <section class="py-20 px-4">
+        <section class="py-20 mx-4">
 
             <div class="flex flex-row justify-start">
                 <h1 class="text-2xl font-bold text-black">New Collection</h1>
@@ -40,7 +40,7 @@
 
         </section> 
 
-        <section class="py-10 mt-8 px-4"> 
+        <section class="py-10 mt-8 mx-4"> 
 
             <div class="flex flex-row justify-start">
                 <h1 class="text-2xl font-bold text-black">Our Products</h1>
@@ -60,7 +60,7 @@
 
         <livewire:news.news-banner /> 
 
-        <section class="pt-4"> 
+        <section class="pt-4">  
 
             <livewire:brands.brands-banner />
 
