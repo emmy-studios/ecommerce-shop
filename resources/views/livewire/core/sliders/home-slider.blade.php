@@ -19,9 +19,9 @@
                         {{--<div class="description">
                             {{ $item->description }}
                         </div>--}}
-                        <div class="button">
+                        {{--<div class="button">
                             <button>SEE MORE</button>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             @empty
