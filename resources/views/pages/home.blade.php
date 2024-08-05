@@ -8,11 +8,11 @@
 
     <main>
 
-        <livewire:core.hero.home-hero /> 
+        <livewire:core.sliders.home-slider />
 
         <livewire:core.banners.banner />
 
-        <livewire:core.banners.banner-grid />
+        <livewire:core.banners.image-tags />
 
         <section class="py-20 mx-4">
 

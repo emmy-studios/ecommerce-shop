@@ -39,8 +39,6 @@ class NewUsers extends BaseWidget
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('profile_image')
                     ->circular(),
-                Tables\Columns\ImageColumn::make('banner_image')
-                    ->circular(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable()
                     ->sortable(),

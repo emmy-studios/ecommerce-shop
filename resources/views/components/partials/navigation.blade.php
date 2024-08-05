@@ -1,6 +1,6 @@
 <header x-data="{ responsiveNav: false }">
 
-    <nav class="border-b px-4 py-2 bg-white">
+    <nav class="border-b px-4 py-2 bg-white relative z-50">
 
         <div class="flex flex-wrap items-center justify-between md:justify-around">
             

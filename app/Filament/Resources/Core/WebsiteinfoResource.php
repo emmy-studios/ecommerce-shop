@@ -21,7 +21,7 @@ class WebsiteinfoResource extends Resource
 
     protected static ?string $navigationLabel = 'Website Information';
 
-    protected static ?string $navigationGroup = 'Wbsite Information';
+    protected static ?string $navigationGroup = 'Website';
 
     protected static ?int $navigationSort = 1;
 

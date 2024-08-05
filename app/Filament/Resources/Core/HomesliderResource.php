@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Core;
 
-use App\Filament\Resources\Core\BannerResource\Pages;
-use App\Filament\Resources\Core\BannerResource\RelationManagers;
-use App\Models\Core\Banner;
+use App\Filament\Resources\Core\HomesliderResource\Pages;
+use App\Filament\Resources\Core\HomesliderResource\RelationManagers;
+use App\Models\Core\Homeslider;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,27 +13,29 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class BannerResource extends Resource
+class HomesliderResource extends Resource
 {
-    protected static ?string $model = Banner::class;
+    protected static ?string $model = Homeslider::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-photo';
+    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
 
-    protected static ?string $navigationLabel = 'Banner';
+    protected static ?string $navigationLabel = 'Home Slider';
 
     protected static ?string $navigationGroup = 'Website';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('first_text')
+                Forms\Components\TextInput::make('title')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('second_text')
+                Forms\Components\TextInput::make('subtitle')
                     ->maxLength(255),
-                Forms\Components\FileUpload::make('banner_image')
+                Forms\Components\TextInput::make('description')
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('image_url')
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
@@ -45,11 +47,13 @@ class BannerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('first_text')
+                Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('second_text')
+                Tables\Columns\TextColumn::make('subtitle')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('banner_image'),
+                Tables\Columns\TextColumn::make('description')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('image_url'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -83,10 +87,10 @@ class BannerResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListBanners::route('/'),
-            'create' => Pages\CreateBanner::route('/create'),
-            'view' => Pages\ViewBanner::route('/{record}'),
-            'edit' => Pages\EditBanner::route('/{record}/edit'),
+            'index' => Pages\ListHomesliders::route('/'),
+            'create' => Pages\CreateHomeslider::route('/create'),
+            'view' => Pages\ViewHomeslider::route('/{record}'),
+            'edit' => Pages\EditHomeslider::route('/{record}/edit'),
         ];
     }
 }

@@ -47,10 +47,6 @@ class UserResource extends Resource
                     ->preserveFilenames()
                     ->imageEditor()
                     ->image(),
-                Forms\Components\FileUpload::make('banner_image')
-                    ->preserveFilenames()
-                    ->imageEditor()
-                    ->image(),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
@@ -87,8 +83,6 @@ class UserResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('profile_image')
-                    ->circular(),
-                Tables\Columns\ImageColumn::make('banner_image')
                     ->circular(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable()

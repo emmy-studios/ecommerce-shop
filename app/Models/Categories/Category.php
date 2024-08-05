@@ -16,11 +16,6 @@ class Category extends Model
         'name',
         'description',
     ];
-    
-    public function subcategories(): BelongsToMany
-    {
-        return $this->belongsToMany(Subcategory::class, 'category_subcategory');
-    }
 
     public function products(): BelongsToMany
     {

@@ -5,7 +5,6 @@ namespace App\Filament\Resources\Products;
 use App\Filament\Resources\Products\ProductResource\Pages;
 use App\Filament\Resources\Products\ProductResource\RelationManagers;
 use App\Filament\Resources\Products\ProductResource\RelationManagers\CategoriesRelationManager;
-use App\Filament\Resources\Products\ProductResource\RelationManagers\SubcategoriesRelationManager;
 use App\Models\Products\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -109,7 +108,6 @@ class ProductResource extends Resource
     {
         return [
             CategoriesRelationManager::class,
-            SubcategoriesRelationManager::class,
         ];
     }
 

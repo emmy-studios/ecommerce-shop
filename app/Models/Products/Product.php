@@ -6,7 +6,6 @@ use App\Models\Brands\Brand;
 use App\Models\Products\ProductImage;
 use App\Models\Products\ProductDetail;
 use App\Models\Categories\Category;
-use App\Models\Categories\Subcategory;
 use App\Models\Reviews\Review;
 use App\Models\Wishlists\Wishlist;
 use App\Models\Shoppingcarts\Shoppingcart;
@@ -51,11 +50,6 @@ class Product extends Model
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class);
-    }
-    
-    public function subcategories(): BelongsToMany
-    {
-        return $this->belongsToMany(Subcategory::class);
     }
 
     public function reviews(): HasMany

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\Categories;
+namespace App\Filament\Resources\Core;
 
-use App\Filament\Resources\Categories\CategoryResource\Pages;
-use App\Models\Categories\Category;
+use App\Filament\Resources\Core\ImagetagResource\Pages;
+use App\Filament\Resources\Core\ImagetagResource\RelationManagers;
+use App\Models\Core\Imagetag;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,26 +13,29 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CategoryResource extends Resource
+class ImagetagResource extends Resource
 {
-    protected static ?string $model = Category::class;
+    protected static ?string $model = Imagetag::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-tag';
+    protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'Category';
+    protected static ?string $navigationLabel = 'Image Tags';
 
-    protected static ?string $navigationGroup = "Categories";
+    protected static ?string $navigationGroup = 'Website';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
+            ->schema([ 
+                Forms\Components\FileUpload::make('image_url')
+                    ->disk('public')
+                    ->directory('core-images')
+                    ->image()
+                    ->imageEditor(),
+                Forms\Components\TextInput::make('text')
                     ->maxLength(255),
-                Forms\Components\MarkdownEditor::make('description')
-                    ->columnSpanFull(),
             ]);
     }
 
@@ -39,7 +43,8 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
+                Tables\Columns\ImageColumn::make('image_url'),
+                Tables\Columns\TextColumn::make('text')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -74,10 +79,10 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'view' => Pages\ViewCategory::route('/{record}'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListImagetags::route('/'),
+            'create' => Pages\CreateImagetag::route('/create'),
+            'view' => Pages\ViewImagetag::route('/{record}'),
+            'edit' => Pages\EditImagetag::route('/{record}/edit'),
         ];
     }
 }

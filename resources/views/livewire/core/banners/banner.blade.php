@@ -1,6 +1,6 @@
 <div>
 
-    @if($banners)
+    @if($banners) 
 
         @foreach($banners as $banner)
 
