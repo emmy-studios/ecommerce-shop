@@ -1,6 +1,6 @@
 <div class="dark:bg-gray-900">
 
-    <div class="w-full py-4 px-4 md:mx-8">
+    <div class="w-full py-4 px-4 md:mx-8 md:pr-10">
         
         <div class="max-w-2xl">
             <h2 class="text-5xl font-bold tracking-tight text-black sm:text-4xl dark:text-white">

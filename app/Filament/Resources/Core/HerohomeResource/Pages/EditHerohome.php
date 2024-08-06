@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\Core\HomesliderResource\Pages;
+namespace App\Filament\Resources\Core\HerohomeResource\Pages;
 
-use App\Filament\Resources\Core\HomesliderResource;
+use App\Filament\Resources\Core\HerohomeResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditHomeslider extends EditRecord
+class EditHerohome extends EditRecord
 {
-    protected static string $resource = HomesliderResource::class;
+    protected static string $resource = HerohomeResource::class;
 
     protected function getHeaderActions(): array
     {

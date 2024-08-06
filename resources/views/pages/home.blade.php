@@ -8,13 +8,21 @@
 
     <main>
 
-        <livewire:core.sliders.home-slider />
+        <livewire:core.hero.home-hero />
 
         <livewire:core.banners.banner />
 
+        <div class="flex items-center my-8 mx-6">
+            <div class="flex-grow border-t border-purple-300"></div>
+            <div class="mx-4 h-8 w-8 flex items-center justify-center rounded-full border-2 border-purple-300">
+                <span class="text-purple-500">•</span>
+            </div>
+            <div class="flex-grow border-t border-purple-300"></div>
+        </div>
+
         <livewire:core.banners.image-tags />
 
-        <section class="py-20 mx-4">
+        <section class="py-10 mx-4">
 
             <div class="flex flex-row justify-start">
                 <h1 class="text-2xl font-bold text-black">New Collection</h1>
@@ -34,7 +42,7 @@
 
         <livewire:discounts.discount />
 
-        <section class="my-10">
+        <section class="my-6">
 
             <livewire:discounts.discount-products />
 

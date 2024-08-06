@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Core;
 
-use App\Filament\Resources\Core\HomesliderResource\Pages;
-use App\Filament\Resources\Core\HomesliderResource\RelationManagers;
-use App\Models\Core\Homeslider;
+use App\Filament\Resources\Core\HerohomeResource\Pages;
+use App\Filament\Resources\Core\HerohomeResource\RelationManagers;
+use App\Models\Core\Herohome;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,13 +13,13 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class HomesliderResource extends Resource
+class HerohomeResource extends Resource
 {
-    protected static ?string $model = Homeslider::class;
+    protected static ?string $model = Herohome::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-home-modern';
 
-    protected static ?string $navigationLabel = 'Home Slider';
+    protected static ?string $navigationLabel = 'Home Hero';
 
     protected static ?string $navigationGroup = 'Website';
 
@@ -33,13 +33,14 @@ class HomesliderResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('subtitle')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('description')
+                Forms\Components\TextInput::make('text')
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image_url')
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
-                    ->imageEditor(),
+                    ->imageEditor()
+                    ->required(),
             ]);
     }
 
@@ -51,7 +52,7 @@ class HomesliderResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('subtitle')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('description')
+                Tables\Columns\TextColumn::make('text')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image_url'),
                 Tables\Columns\TextColumn::make('created_at')
@@ -87,10 +88,11 @@ class HomesliderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListHomesliders::route('/'),
-            'create' => Pages\CreateHomeslider::route('/create'),
-            'view' => Pages\ViewHomeslider::route('/{record}'),
-            'edit' => Pages\EditHomeslider::route('/{record}/edit'),
+            'index' => Pages\ListHerohomes::route('/'),
+            'create' => Pages\CreateHerohome::route('/create'),
+            'view' => Pages\ViewHerohome::route('/{record}'),
+            'edit' => Pages\EditHerohome::route('/{record}/edit'),
         ];
     }
 }
+ 

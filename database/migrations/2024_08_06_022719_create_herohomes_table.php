@@ -6,16 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+    /** 
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('homesliders', function (Blueprint $table) {
-            $table->id(); 
+        Schema::create('herohomes', function (Blueprint $table) {
+            $table->id();
             $table->string('title')->nullable();
             $table->string('subtitle')->nullable();
-            $table->string('description')->nullable();
+            $table->string('text')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('homesliders');
+        Schema::dropIfExists('herohomes');
     }
 };
