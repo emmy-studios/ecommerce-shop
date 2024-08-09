@@ -2,36 +2,30 @@
 
 namespace App\Filament\Widgets;
 
-use App\Filament\Resources\Orders\OrderResource;
+use App\Filament\Resources\Reviews\ReviewResource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 
-class NewOrders extends BaseWidget
+class NewReviewsTable extends BaseWidget
 {
-    protected int | string |array $columnSpan = 'full';
-    
+    protected int | string |array $columnSpan = "full";
+
     public function table(Table $table): Table
     {
         return $table
-            ->query(OrderResource::getEloquentQuery())
-            ->defaultPaginationPageOption(10)
+            ->query(ReviewResource::getEloquentQuery())
+            ->defaultPaginationPageOption(5)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                     ->numeric()
+                    ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('order_code')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('subtotal')
+                Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
+                    ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('total')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->sortable()
-                    ->searchable(), 
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

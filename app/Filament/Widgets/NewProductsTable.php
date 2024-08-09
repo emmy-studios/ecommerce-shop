@@ -2,48 +2,43 @@
 
 namespace App\Filament\Widgets;
 
-use App\Filament\Resources\UserResource;
+use App\Filament\Resources\Products\ProductResource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 
-class NewUsers extends BaseWidget
+class NewProductsTable extends BaseWidget
 {
-    protected int | string |array $columnSpan = 'full';
-
+    protected int | string |array $columnSpan = "full";
+    
     public function table(Table $table): Table
     {
         return $table
-            ->query(UserResource::getEloquentQuery())
-            ->defaultPaginationPageOption(10)
+            ->query(ProductResource::getEloquentQuery())
+            ->defaultPaginationPageOption(5)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Username')
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('first_name')
+                Tables\Columns\TextColumn::make('unit_price')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('stock_quantity')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('selling_quantity')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('emergency_quantity')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('total_quantity')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('brand.name')
+                    ->numeric()
                     ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('last_name')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('birth')
-                    ->date()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('phone_code')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('phone_number')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\ImageColumn::make('profile_image')
-                    ->circular(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

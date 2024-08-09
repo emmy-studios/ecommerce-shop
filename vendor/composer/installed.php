@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '12218ab4f7b3d9cfb46f0fb5b292252bb6f74041',
+        'reference' => 'f17b243efa0dac492e67a655df2142a04f2e5434',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -273,6 +273,15 @@
             'install_path' => __DIR__ . '/../filp/whoops',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'flowframe/laravel-trend' => array(
+            'pretty_version' => 'v0.1.5',
+            'version' => '0.1.5.0',
+            'reference' => 'bc43bf7840ff60aca39e856ad96f5e990fac83d7',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../flowframe/laravel-trend',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'fruitcake/php-cors' => array(
             'pretty_version' => 'v1.3.0',
@@ -562,7 +571,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '12218ab4f7b3d9cfb46f0fb5b292252bb6f74041',
+            'reference' => 'f17b243efa0dac492e67a655df2142a04f2e5434',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

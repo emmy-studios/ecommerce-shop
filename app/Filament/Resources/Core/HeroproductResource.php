@@ -21,9 +21,9 @@ class HeroproductResource extends Resource
 
     protected static ?string $navigationLabel = 'Products Hero';
 
-    protected static ?string $navigationGroup = 'Hero Sections';
+    protected static ?string $navigationGroup = 'Website';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

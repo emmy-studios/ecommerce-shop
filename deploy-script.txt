@@ -1,0 +1,47 @@
+features:
+  - mysql
+  - 'php latest'
+  - ssl
+  - 'ssl always'
+nginx:
+  root: public_html/public
+  fastcgi: 'on'
+  locations:
+    -
+      match: /
+      try_files: '$uri $uri/ /index.php$is_args$args'
+    -
+      match: '~ \.[^\/]+(?<!\.php)$'
+      try_files: '$uri =404'
+commands:
+  - 'cp .env .env.backup'
+  - 'sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env'
+  - 'sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env'
+  - 'sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env'
+  - 'sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env'
+  - 'sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env'
+  - 'sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env'
+  - 'sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env'
+  - 'composer install'
+  - 'php artisan migrate:fresh --force'
+  - 'php artisan db:seed --force'
+  - 'php artisan key:generate --force'
+  - 'php artisan storage:link'
+  - 'npm install'
+  - 'npm run build'
+  - 'php artisan config:clear'
+  - 'php artisan route:clear'
+  - 'php artisan view:clear'
+  - 'php artisan config:cache'
+  - 'php artisan route:cache'
+  - 'php artisan view:cache'
+  - 'php artisan vendor:publish --force --tag=livewire:assets'
+  - 'php artisan vendor:publish --force --tag=filament-config'
+  - 'php artisan create:admin-user admin@gmail.com admin.user001'
+  - 'rm -f public/hot'
+  - 'chmod 0750 -R storage || true'
+source:
+  url: 'ssh://git@github.com/emmy-studios/ecommerce-shop.git'
+  credentials:
+    github:
+      ssh: "-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAaAAAABNlY2RzYS\n1zaGEyLW5pc3RwMjU2AAAACG5pc3RwMjU2AAAAQQQ/1nFcnEiH53I1A8z+68zSbkyy5JYR\ndv9uDp/pIfi3lcFwEUuF6n+ataa3v4vzU425cPsG5g0ex0eQgRCyTqdPAAAAqBMgxUoTIM\nVKAAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBD/WcVycSIfncjUD\nzP7rzNJuTLLklhF2/24On+kh+LeVwXARS4Xqf5q1pre/i/NTjblw+wbmDR7HR5CBELJOp0\n8AAAAhAP7b7QbBMPMaD7Q+Hc8hucY+6i7beeYWNDc176rexmyiAAAADmdpdEBnaXRodWIu\nY29tAQ==\n-----END OPENSSH PRIVATE KEY-----\n"

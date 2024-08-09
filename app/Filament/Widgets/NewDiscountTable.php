@@ -7,15 +7,15 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget as BaseWidget;
 
-class Discounts extends BaseWidget
+class NewDiscountTable extends BaseWidget
 {
-    protected int | string |array $columnSpan = 'full';
-    
+    protected int | string |array $columnSpan = "full";
+
     public function table(Table $table): Table
     {
         return $table
             ->query(DiscountResource::getEloquentQuery())
-            ->defaultPaginationPageOption(10)
+            ->defaultPaginationPageOption(5)
             ->defaultSort('created_at', 'desc')
             ->columns([
                 Tables\Columns\TextColumn::make('discount_code')

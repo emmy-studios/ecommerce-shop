@@ -43,9 +43,9 @@
                 </a>
                 <a 
                     class="font-bold px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 rounded-xl"
-                    href="{{ route('home') }}"
+                    href="{{ route('products') }}"
                     >
-                    Home
+                    Products
                 </a>
             </div>
 
