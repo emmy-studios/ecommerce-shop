@@ -7,12 +7,12 @@
             name="searchProduct" 
             id="searchProduct"
             wire:model.defer="search"
-            placeholder="write the product name..."
+            placeholder="{{ __('Write the product name...') }}"
             >
         <button 
             class="px-3 py-2 bg-purple-600 text-white hover:bg-purple-500 cursor-pointer rounded-sm" 
             wire:click="searchProducts">
-            Search
+            {{ __('Search') }}
         </button>
     </div>
 

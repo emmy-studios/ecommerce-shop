@@ -23,7 +23,7 @@
 
             <h2 
                 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight to-blue-500">
-                Enter your credentials to continue
+                {{ __('Enter your credentials to continue') }}
             </h2>
 
             @if($errors->has('errorCredentials'))
@@ -48,7 +48,9 @@
 
                     <div>
 
-                        <label for="name" class="block text-sm font-medium leading-6 text-balance">Username</label>
+                        <label for="name" class="block text-sm font-medium leading-6 text-balance">
+                            {{ __('Username') }}
+                        </label>
 
                         <div class="mt-2">
                             <input id="name"  name="name" type="text" required
@@ -64,12 +66,14 @@
 
                     <div>
                         <div class="flex items-center justify-between">
-                            <label for="password" class="block text-sm font-medium leading-6 text-black">Password</label>
+                            <label for="password" class="block text-sm font-medium leading-6 text-black">
+                                {{ __('Password') }}
+                            </label>
                             <div class="text-sm">
                                 <a 
                                     href="{{ route('forgot') }}" 
                                     class="font-semibold text-purple-500 hover:text-purple-400">
-                                    Forgot password?
+                                    {{ __('Forgot password?') }}
                                 </a>
                             </div>
                         </div>
@@ -88,16 +92,16 @@
                     <div>
                         <button type="submit"
                             class="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500">
-                            Enter
+                            {{ __('Enter') }}
                         </button>
                     </div>
 
             </form>
 
             <p class="mt-10 text-center text-sm text-gray-400">
-                Not a member?
+                {{ __('Not a member?') }}
                 <a href="{{ route('signup') }}" class="font-semibold leading-6 text-purple-500 hover:text-purple-400">
-                    Register for free
+                    {{ __('Register for free') }}
                 </a>
             </p>
 

@@ -8,7 +8,7 @@
 
     <main>
 
-        <h1 class="text-5xl font-bold text-center my-8 py-8">Our Brands</h1>
+        <h1 class="text-5xl font-bold text-center my-8 py-8">{{ __('Our Brands') }}</h1>
 
         <section class="flex justify-center my-8">
 

@@ -63,7 +63,7 @@
 
                 <div class="flex flex-row px-4 my-4 text-red-700 hover:text-red-500">
                     <p>
-                        No product in shoppingcart.
+                        {{ __('No product in shoppingcart') }}.
                     </p> 
                 </div>
 
@@ -75,7 +75,7 @@
                     class="px-8 py-2 bg-purple-600 text-white hover:bg-purple-500 cursor-pointer"
                     href="{{ route('shoppingcart.show', ['id' => Auth::user()->shoppingcart->id]) }}"
                     >
-                    Checkout
+                    {{ __('Checkout') }}
                 </a>
             </div>
 
@@ -94,7 +94,7 @@
 
             <div class="flex flex-row px-4 my-4 text-red-700 hover:text-red-500">
                 <p>
-                    No product available.
+                    {{ __('No product available') }}.
                 </p>
             </div>
 

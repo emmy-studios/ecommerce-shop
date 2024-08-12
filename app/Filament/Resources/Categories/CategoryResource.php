@@ -18,9 +18,9 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
-    protected static ?string $navigationLabel = 'Category';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = "Categories";
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -29,8 +29,10 @@ class CategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label(__('Category Name'))
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('description')
+                    ->label(__('Description'))
                     ->columnSpanFull(),
             ]);
     }
@@ -40,12 +42,15 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('Category Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -79,5 +84,17 @@ class CategoryResource extends Resource
             'view' => Pages\ViewCategory::route('/{record}'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Categories');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Categories');
     }
 }

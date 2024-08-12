@@ -45,7 +45,7 @@
 
                 <div class="flex flex-row px-4 my-4 text-red-700 hover:text-red-500">
                     <p>
-                        No product in wishlist.
+                        {{ __('No product in wishlist') }}.
                     </p> 
                 </div>
 
@@ -56,7 +56,7 @@
                     class="px-8 py-2 bg-purple-600 text-white hover:bg-purple-500 cursor-pointer"
                     href="{{ route('wishlist.show', ['id' => Auth::user()->wishlist->id]) }}"
                     >
-                    View All
+                    {{ __('View All') }}
                 </a>
             </div>
 
@@ -74,7 +74,7 @@
 
             <div class="flex flex-row px-4 my-4 text-red-700 hover:text-red-500">
                 <p>
-                    No product available.
+                    {{ __('No product available') }}.
                 </p>
             </div>
 

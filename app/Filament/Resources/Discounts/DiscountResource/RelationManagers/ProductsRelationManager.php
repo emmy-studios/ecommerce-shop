@@ -9,13 +9,19 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProductsRelationManager extends RelationManager
 {
     protected static string $relationship = 'products';
 
-    protected static ?string $title = 'Products related to the Discount';
+    protected static ?string $title = null;
+
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
+    {
+        return __('Products related to the Discount');
+    }
 
     public function form(Form $form): Form
     {
@@ -41,7 +47,8 @@ class ProductsRelationManager extends RelationManager
                 Tables\Actions\AttachAction::make()
                     ->preloadRecordSelect()
                     ->multiple()
-                    ->recordSelect(fn (Select $select) => $select->placeholder('Select a Product/Products')),
+                    ->recordSelect(fn (Select $select) => $select->placeholder(__('Select a Product/Products')))
+                    ->modalHeading(__('Attach Product')),
             ])
             ->actions([
                 Tables\Actions\DetachAction::make(),
@@ -51,5 +58,5 @@ class ProductsRelationManager extends RelationManager
                     Tables\Actions\DetachBulkAction::make(),
                 ]),
             ]); 
-    }
+    } 
 }

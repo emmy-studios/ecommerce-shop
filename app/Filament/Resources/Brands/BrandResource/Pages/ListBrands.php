@@ -13,7 +13,13 @@ class ListBrands extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Brand')),
         ];
     }
+    public function getTitle(): string
+    {
+        return __('Brands');
+    }
+    
 }
+ 

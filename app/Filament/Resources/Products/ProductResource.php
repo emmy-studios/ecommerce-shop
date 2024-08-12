@@ -20,9 +20,9 @@ class ProductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
-    protected static ?string $navigationLabel = "Products";
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = "Products";
+    protected static ?string $navigationGroup = null; 
 
     protected static ?int $navigationSort = 1;
 
@@ -31,25 +31,32 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->label('Product Title')
+                    ->label(__('Product Title'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('description')
+                    ->label(__('Description'))
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('unit_price')
+                    ->label(__('Unit Price'))
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('stock_quantity')
+                    ->label(__('Stock Quantity'))
                     ->numeric(),
                 Forms\Components\TextInput::make('selling_quantity')
+                    ->label(__('Selling Quantity'))
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('emergency_quantity')
+                    ->label(__('Emergency Quantity'))
                     ->numeric(),
                 Forms\Components\TextInput::make('total_quantity')
+                    ->label(__('Total Quantity'))
                     ->numeric(),
                 Forms\Components\Select::make('brand_id')
+                    ->label(__('Brand'))
                     ->relationship('brand', 'name')
                     ->required(),
             ]);
@@ -60,32 +67,41 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('Product Title'))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('unit_price')
+                    ->label(__('Unit Price'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('stock_quantity')
+                    ->label(__('Stock Quantity'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('selling_quantity')
+                    ->label(__('Selling Quantity'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('emergency_quantity')
+                    ->label(__('Emergency Quantity'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('total_quantity')
+                    ->label(__('Total Quantity'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('brand.name')
+                    ->label(__('Brand'))
                     ->numeric()
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -119,5 +135,17 @@ class ProductResource extends Resource
             'view' => Pages\ViewProduct::route('/{record}'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Products');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Products');
     }
 }

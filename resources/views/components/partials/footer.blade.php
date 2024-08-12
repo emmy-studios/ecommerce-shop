@@ -7,27 +7,27 @@
             <livewire:subscribe.subscribe-form-email />
 
             <div>
-                <p class="font-semibold text-gray-800 dark:text-white">Quick Link</p>
+                <p class="font-semibold text-gray-800 dark:text-white">{{ __('Quick Links') }}</p>
 
                 <div class="flex flex-col items-start mt-5 space-y-2">
                     <a 
                         href="{{ route('home') }}" 
                         class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-purple-400 hover:underline hover:text-purple-500">
-                        Home
+                        {{ __('Home') }}
                     </a>
                     <a 
                         href="{{ route('products') }}" 
                         class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-purple-400 hover:underline hover:text-purple-500">
-                        Our Products
+                        {{ __('Our Products') }}
                     </a>
                     <a href="{{ route('news') }}" class="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-purple-400 hover:underline hover:text-purple-500">
-                        Our News
+                        {{ __('Our News') }}
                     </a>
                 </div>
             </div>
 
             <div>
-                <p class="font-semibold text-gray-800 dark:text-white">Our Trending News</p>
+                <p class="font-semibold text-gray-800 dark:text-white">{{ __('Our Trending News') }}</p>
 
                 <livewire:news.footer-news />
 

@@ -6,7 +6,7 @@
             wire:change="filterBrands" 
             class="border p-1 text-white bg-purple-600 text-lg rounded"
             >
-            <option value="">Select a Brand</option>
+            <option value="">{{ __('Select a Brand') }}</option>
 
             @foreach($brands as $brand)
 

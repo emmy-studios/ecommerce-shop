@@ -15,10 +15,10 @@
                 <div>
                     <div class="container flex justify-center mx-auto pt-16">
                         <div>
-                            <p class="text-purple-600 text-lg text-center font-normal pb-3">OUR NEWS</p>
+                            <p class="text-purple-600 text-lg text-center font-normal pb-3">{{ __('OUR NEWS') }}</p>
                             <h1
                                 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
-                                Enjoy reading our news related to the fashion and the trending cloth.    
+                                {{ __('Enjoy reading our news related to the fashion and the trending cloth.') }}    
                             </h1>
                         </div>
                     </div>

@@ -27,7 +27,8 @@
                                         class="w-full h-full lg:rounded-l-2xl rounded-2xl bg-blend-multiply bg-indigo-700" />
                                 @endif
                                 <h1 class="font-manrope text-white text-4xl font-bold leading-10 absolute top-11 left-11">
-                                    Contact us</h1>
+                                    {{ __('Contact Us') }}
+                                </h1>
                                 <div class="absolute bottom-0 w-full lg:p-11 p-5">
                                     <div class="bg-white rounded-lg p-6 block">
                                         <a href="javascript:;" class="flex items-center mb-6">
@@ -75,7 +76,7 @@
                     <div class="bg-gray-50 p-5 lg:p-11 lg:rounded-r-2xl rounded-2xl">
 
                         <h2 class="text-purple-600 font-manrope text-4xl font-semibold leading-10 mb-11">
-                            Send Us A Message
+                            {{ __('Send Us A Message') }}
                         </h2>
 
                         @if(session()->has('successEmail'))
@@ -92,7 +93,7 @@
                                 type="text"
                                 class="w-full h-12 text-gray-600 placeholder-gray-400  shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
                                 name="name"
-                                placeholder="Name">
+                                placeholder="{{ __('Name') }}">
                             @error('name')
                                 <p class="text-sm text-red-600 pl-4 py-2">
                                     {{ $message }}
@@ -102,7 +103,7 @@
                                 type="email"
                                 name="email"
                                 class="w-full h-12 text-gray-600 placeholder-gray-400 shadow-sm bg-transparent text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
-                                placeholder="Email">
+                                placeholder="{{ __('Email Address') }}">
                             @error('email')
                                 <p class="text-sm text-red-600 pl-4 py-2">
                                     {{ $message }}
@@ -112,7 +113,7 @@
                                 type="text"
                                 name="message"
                                 class="w-full h-12 text-gray-600 placeholder-gray-400 bg-transparent text-lg shadow-sm font-normal leading-7 rounded-full border border-gray-200 focus:outline-none pl-4 mb-10"
-                                placeholder="Message">
+                                placeholder="{{ __('Message') }}">
                             @error('message')
                                 <p class="text-sm text-red-600 pl-4 py-2">
                                     {{ $message }}
@@ -121,7 +122,7 @@
                             <button
                                 type="submit"
                                 class="w-full h-12 text-white text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-purple-800 bg-purple-600 shadow-sm">
-                                Send
+                                {{ __('Send') }}
                             </button>
 
                         </form>

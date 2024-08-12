@@ -13,7 +13,12 @@ class ListProducts extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Product')),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return __('Products');
     }
 }

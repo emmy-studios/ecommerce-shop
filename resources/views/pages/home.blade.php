@@ -25,14 +25,14 @@
         <section class="py-10 mx-4">
 
             <div class="flex flex-row justify-start">
-                <h1 class="text-2xl font-bold text-black">New Collection</h1>
+                <h1 class="text-2xl font-bold text-black">{{ __('New Collection') }}</h1>
             </div>
 
             <div class="flex flex-row justify-end">
                 <a 
                     class="text-purple-600"
                     href="{{ route('products') }}">
-                    View More
+                    {{ __('View More') }}
                 </a>
             </div>
 
@@ -51,14 +51,14 @@
         <section class="py-10 mt-8 mx-4"> 
 
             <div class="flex flex-row justify-start">
-                <h1 class="text-2xl font-bold text-black">Our Products</h1>
+                <h1 class="text-2xl font-bold text-black">{{ __('Our Products') }}</h1>
             </div>
 
             <div class="flex flex-row justify-end">
                 <a 
                     class="text-purple-600"
                     href="{{ route('products') }}">
-                    View More
+                    {{ __('View More') }}
                 </a>
             </div>
 

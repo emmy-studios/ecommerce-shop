@@ -20,9 +20,9 @@ class DiscountResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-gift';
 
-    protected static ?string $navigationLabel = 'Discounts';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Discounts';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -31,19 +31,25 @@ class DiscountResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('discount_code')
+                    ->label(__('Discount Code'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\DatePicker::make('start_at'),
-                Forms\Components\DatePicker::make('ends_at'),
+                Forms\Components\DatePicker::make('start_at')
+                    ->label(__('Start at')),
+                Forms\Components\DatePicker::make('ends_at')
+                    ->label(__('Ends at')),
                 Forms\Components\TextInput::make('discount_percentage')
+                    ->label(__('Discount Percentage'))
                     ->required()
                     ->numeric(),
                 Forms\Components\FileUpload::make('banner_image')
+                    ->label(__('Banner Image'))
                     ->disk('public')
                     ->directory('discount-images')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\MarkdownEditor::make('details')
+                    ->label(__('Details'))
                     ->columnSpanFull(),
             ]);
     }
@@ -53,23 +59,30 @@ class DiscountResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('discount_code')
+                    ->label(__('Discount Code'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('start_at')
+                    ->label(__('Start at'))
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('ends_at')
+                    ->label(__('Ends at'))
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('discount_percentage')
+                    ->label(__('Discount Percentage'))
                     ->numeric()
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('banner_image'),
+                Tables\Columns\ImageColumn::make('banner_image')
+                    ->label(__('Banner Image')),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -103,5 +116,17 @@ class DiscountResource extends Resource
             'view' => Pages\ViewDiscount::route('/{record}'),
             'edit' => Pages\EditDiscount::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Discounts');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Discounts');
     }
 }

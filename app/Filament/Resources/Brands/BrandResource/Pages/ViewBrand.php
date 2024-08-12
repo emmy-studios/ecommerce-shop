@@ -16,4 +16,9 @@ class ViewBrand extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    public function getTitle(): string
+    {
+        return __('View Brand');
+    }
 }

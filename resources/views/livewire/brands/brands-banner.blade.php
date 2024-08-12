@@ -1,14 +1,14 @@
 <div class="bg-white px-4 pt-8 pb-8 mx-4">
 
     <div class="flex flex-row justify-start">
-        <h2 class="text-3xl font-bold text-start">Our Brands</h2>
+        <h2 class="text-3xl font-bold text-start">{{ __('Our Brands') }}</h2>
     </div>
 
     <div class="flex flex-row justify-end mx-4">
         <a 
             class="text-purple-600"
             href="{{ route('brands') }}">
-            View More
+            {{ __('View More') }}
         </a>
     </div>
 

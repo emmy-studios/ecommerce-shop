@@ -10,7 +10,7 @@
 
             <div class="flex items-start justify-between p-5 border-b rounded-t">
                 <h3 class="text-xl font-semibold">
-                    Edit profile
+                    {{ __('Edit Profile') }}
                 </h3>
                 <a href="{{ route('dashboard') }}" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-toggle="product-modal">
                    <i class="fa-solid fa-arrow-left w-5 h-5 text-black"></i>
@@ -26,7 +26,7 @@
                     <div class="grid grid-cols-6 gap-6">
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="username" class="text-sm font-medium text-gray-900 block mb-2">Username</label>
+                            <label for="username" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Username') }}</label>
                             <input 
                                 type="text" 
                                 name="name" 
@@ -39,7 +39,7 @@
                         </div>
                         
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="first_name" class="text-sm font-medium text-gray-900 block mb-2">First Name</label>
+                            <label for="first_name" class="text-sm font-medium text-gray-900 block mb-2">{{ __('First Name') }}</label>
                             <input 
                                 type="text" 
                                 name="first_name" 
@@ -52,7 +52,7 @@
                         </div>
                         
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="last_name" class="text-sm font-medium text-gray-900 block mb-2">Last Name</label>
+                            <label for="last_name" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Last Name') }}</label>
                             <input type="text" 
                                 name="last_name" 
                                 id="last_name" 
@@ -64,7 +64,7 @@
                         </div>
                         
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="email" class="text-sm font-medium text-gray-900 block mb-2">Email</label>
+                            <label for="email" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Email') }}</label>
                             <input 
                                 type="email" 
                                 name="email" 
@@ -119,7 +119,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="phone_code" class="text-sm font-medium text-gray-900 block mb-2">Phone Code:</label>
+                            <label for="phone_code" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Phone Code') }}</label>
                             <input 
                                 type="text" 
                                 name="phone_code" 
@@ -132,7 +132,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="phone_code" class="text-sm font-medium text-gray-900 block mb-2">Phone Number:</label>
+                            <label for="phone_code" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Phone Number') }}</label>
                             <input 
                                 type="text" 
                                 name="phone_number" 
@@ -145,7 +145,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="birth" class="text-sm font-medium text-gray-900 block mb-2">Birth:</label>
+                            <label for="birth" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Birth') }}</label>
                             <input 
                                 type="date" 
                                 name="birth" 
@@ -161,14 +161,14 @@
 
                     <div class="flex items-start pt-8 pb-4 rounded-t">
                         <h3 class="text-xl font-semibold">
-                            Address Information
+                            {{ __('Address Information') }}
                         </h3>
                     </div>
 
                     <div class="grid grid-cols-6 gap-6">
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="country" class="text-sm font-medium text-gray-900 block mb-2">Country:</label>
+                            <label for="country" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Country') }}</label>
                             <input 
                                 type="text" 
                                 name="country" 
@@ -181,7 +181,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="state" class="text-sm font-medium text-gray-900 block mb-2">State:</label>
+                            <label for="state" class="text-sm font-medium text-gray-900 block mb-2">{{ __('State') }}</label>
                             <input 
                                 type="text" 
                                 name="state" 
@@ -194,7 +194,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="city" class="text-sm font-medium text-gray-900 block mb-2">City:</label>
+                            <label for="city" class="text-sm font-medium text-gray-900 block mb-2">{{ __('City') }}</label>
                             <input 
                                 type="text" 
                                 name="city" 
@@ -207,7 +207,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="address_line_1" class="text-sm font-medium text-gray-900 block mb-2">Personal Address:</label>
+                            <label for="address_line_1" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Personal Address') }}</label>
                             <input 
                                 type="text" 
                                 name="address_line_1" 
@@ -220,7 +220,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3 pb-4">
-                            <label for="address_line_2" class="text-sm font-medium text-gray-900 block mb-2">Shipping Address:</label>
+                            <label for="address_line_2" class="text-sm font-medium text-gray-900 block mb-2">{{ __('Shipping Address') }}</label>
                             <input 
                                 type="text" 
                                 name="address_line_2" 
@@ -299,7 +299,9 @@
 
 
                     <div class="pt-4 border-t border-gray-200 rounded-b">
-                        <button class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit">Save all</button>
+                        <button class="text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center" type="submit">
+                            {{ __('Save All') }}
+                        </button>
                     </div>
 
                 </form>

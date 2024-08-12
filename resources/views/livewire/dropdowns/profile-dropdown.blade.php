@@ -39,19 +39,19 @@
             <a 
                 class="block px-2 py-2 text-gray-500 hover:bg-purple-500 hover:text-white" 
                 href="{{ route('profile.edit') }}">
-                Edit Profile
+                {{ __('Edit Profile') }}
             </a>
 
             <a 
                 class="block px-2 py-2 text-gray-500 hover:bg-purple-500 hover:text-white"
                 href="{{ route('dashboard') }}">
-                Dashboard
+                {{ __('Dashboard') }}
             </a>
     
             <a 
                 class="block px-2 py-2 text-gray-500 hover:bg-purple-500 hover:text-white" 
                 href="{{ route('logout') }}">
-                Logout
+                {{ __('Logout') }}
             </a>
 
         @endauth
@@ -61,13 +61,13 @@
             <a 
                 class="block px-2 py-2 text-gray-500 hover:bg-purple-500 hover:text-white" 
                 href="{{ route('login') }}">
-                Login
+                {{ __('Login') }}
             </a>
 
             <a 
                 class="block px-2 py-2 text-gray-500 hover:bg-purple-500 hover:text-white" 
                 href="{{ route('signup') }}">
-                Signup
+                {{ __('Signup') }}
             </a>
 
         @endguest

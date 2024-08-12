@@ -13,7 +13,7 @@ class SubscribeFormEmail extends Component
 
     protected $rules = [
         'email' => 'required|email'
-    ];
+    ]; 
 
     public function subscribe()
     {
@@ -21,7 +21,7 @@ class SubscribeFormEmail extends Component
 
         Mail::to($this->email)->send(new SubscribeNewsMail($this->email));
 
-        session()->flash('message', 'Subscription successful!');
+        session()->flash('message', __('Subscription successful!'));
     }
 
     public function render()

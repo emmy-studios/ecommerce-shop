@@ -19,9 +19,9 @@ class BrandResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
     
-    protected static ?string $navigationLabel = 'Brands';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Brands';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -30,8 +30,10 @@ class BrandResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label(__('Brand Name'))
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('description')
+                    ->label(__('Description'))
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('logo_url')
                     ->disk('public')
@@ -46,15 +48,17 @@ class BrandResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->label('Brand Name')
+                    ->label(__('Brand Name'))
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('logo_url'),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -89,4 +93,17 @@ class BrandResource extends Resource
             'edit' => Pages\EditBrand::route('/{record}/edit'),
         ];
     }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Brands');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Brands');
+    }
 }
+ 

@@ -13,13 +13,13 @@
                 class="relative hidden sm:block text-gray-500">
                 
                 <ul class="flex flex-row space-x-4">
-                    <li><a wire:navigate href="{{ route('home') }}">Home</a></li>
-                    <li><a wire:navigate href="{{ route('products') }}">Products</a></li>
-                    <li><a wire:navigate href="{{ route('contact.us') }}">Contact Us</a></li>
-                    <li><a wire:navigate href="{{ route('news') }}">News</a></li>        
+                    <li><a wire:navigate href="{{ route('home') }}">{{ __('Home') }}</a></li>
+                    <li><a wire:navigate href="{{ route('products') }}">{{ __('Products') }}</a></li>
+                    <li><a wire:navigate href="{{ route('contact.us') }}">{{ __('Contact Us') }}</a></li>
+                    <li><a wire:navigate href="{{ route('news') }}">{{ __('News') }}</a></li>        
 
                     <button @click="blogShow = !blogShow">
-                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">{{ __('Brands') }}</a></li>
                     </button>
                     {{-- brands --}}
                     <livewire:dropdowns.brands-dropdowns />
@@ -54,23 +54,23 @@
     <div x-show="responsiveNav" @click.outside="responsiveNav = false" x-cloak>
     
         <div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">
-            <a wire:navigate href="{{ route('home') }}">Home</a>
+            <a wire:navigate href="{{ route('home') }}">{{ __('Home') }}</a>
         </div>
         
         <div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">
-            <a wire:navigate href="{{ route('products') }}">Products</a>
+            <a wire:navigate href="{{ route('products') }}">{{ __('Our Products') }}</a>
         </div>
         
         <div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">
-            <a wire:navigate href="{{ route('contact.us') }}">Contact Us</a>
+            <a wire:navigate href="{{ route('contact.us') }}">{{ __('Contact Us') }}</a>
         </div>
         
         <div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">
-            <a href="{{ route('news') }}">Our News</a>
+            <a href="{{ route('news') }}">{{ __('News') }}</a>
         </div>
 
         <div class="flex flex-row px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 hover:text-white">
-            <a href="{{ route('brands') }}">Our Brands</a>
+            <a href="{{ route('brands') }}">{{ __('Brands') }}</a>
         </div>
 
     </div>

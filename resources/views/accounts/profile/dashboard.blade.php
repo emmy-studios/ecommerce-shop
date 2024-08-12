@@ -32,7 +32,7 @@
                                         href="{{ route('profile.edit') }}" 
                                         class="bg-purple-600 hover:bg-purple-500 text-white py-2 px-4 rounded"
                                         >
-                                        Edit Profile
+                                        {{ __('Edit Profile') }}
                                     </a>
                                     <a 
                                         href="{{ route('wishlist.show', ['id' => $wishlist->id]) }}" 
@@ -46,24 +46,24 @@
                             <hr class="my-6 border-t border-gray-300">
     
                             <div class="flex flex-col">
-                                <span class="text-gray-700 uppercase font-bold tracking-wider mb-2">Address</span>
+                                <span class="text-gray-700 uppercase font-bold tracking-wider mb-2">{{ __('Address') }}</span>
                                 <p class="mb-2">
-                                    Country: <span class="text-sm text-gray-500">{{ $address->country }}</span>
+                                    {{ __('Country') }}: <span class="text-sm text-gray-500">{{ $address->country }}</span>
                                 </p>
                                 <p class="mb-2">
-                                    City: <span class="text-sm text-gray-500">{{ $address->city }}</span>
+                                    {{ __('City') }}: <span class="text-sm text-gray-500">{{ $address->city }}</span>
                                 </p>
                                 <p class="mb-2">
-                                    State: <span class="text-sm text-gray-500">{{ $address->state }}</span>
+                                    {{ __('State') }}: <span class="text-sm text-gray-500">{{ $address->state }}</span>
                                 </p>
                                 <p class="mb-2">
-                                    Phone Number: <span class="text-sm text-gray-500">{{ $user->phone_code }} {{ $user->phone_number }}</span>
+                                    {{ __('Phone Number') }}: <span class="text-sm text-gray-500">{{ $user->phone_code }} {{ $user->phone_number }}</span>
                                 </p>
                                 <p class="mb-2">
-                                    Personal Address: <span class="text-sm text-gray-500">{{ $address->address_line_1 }}</span>
+                                    {{ __('Personal Address') }}: <span class="text-sm text-gray-500">{{ $address->address_line_1 }}</span>
                                 </p>
                                 <p class="mb-2">
-                                    Shipping Address <span class="text-sm text-gray-500">{{ $address->address_line_2 }}</span>
+                                    {{ __('Shipping Address') }} <span class="text-sm text-gray-500">{{ $address->address_line_2 }}</span>
                                 </p>
                             </div>
     
@@ -74,13 +74,13 @@
                     <div class="col-span-4 sm:col-span-9">
                         
                         <div class="bg-white shadow rounded-lg p-6">
-                            <h2 class="text-xl font-bold mb-4">About Me</h2>
+                            <h2 class="text-xl font-bold mb-4">{{ __('About Me') }}</h2>
                             <p class="text-gray-700">
                                 {{ $user->bio }}
                             </p>
     
                             <h3 class="font-semibold text-center mt-3 -mb-2">
-                                Find me on
+                                {{ __('Find me on') }}
                             </h3>
     
                             <div class="flex justify-center items-center gap-6 my-6">
@@ -120,7 +120,7 @@
                         {{-- Orders --}}
                         <div class="my-8 bg-white shadow rounded-lg">
 
-                            <h2 class="text-xl font-bold mt-6 mb-2 pt-8 px-8 pb-4">Orders</h2>
+                            <h2 class="text-xl font-bold mt-6 mb-2 pt-8 px-8 pb-4">{{ __('Orders') }}</h2>
 
                             {{-- Flash Message --}}
                             @if (session()->has('success'))
@@ -313,13 +313,13 @@
                                                 <i class="fa-solid fa-bag-shopping mt-4 h-7 w-16"></i>
                                             </div>
                                             <div class="pt-1 text-right">
-                                                <p class="text-sm font-light capitalize">Orders</p>
+                                                <p class="text-sm font-light capitalize">{{ __('Orders') }}</p>
                                                 <h4 class="text-2xl font-semibold tracking-tighter xl:text-2xl">{{ $orders->count() }}</h4>
                                             </div>
                                         </div>
                                         <hr class="opacity-50" />
                                         <div class="p-4">
-                                            <p class="font-light"><span class="text-sm font-bold text-green-600">{{ $orders->count() }} </span> orders last month
+                                            <p class="font-light"><span class="text-sm font-bold text-green-600">{{ $orders->count() }} </span> {{ __('Total orders') }}
                                             </p>
                                         </div>
                                     </div>
@@ -340,7 +340,7 @@
                                         </div>
                                         <hr class="opacity-50" />
                                         <div class="p-4">
-                                            <p class="font-light"><span class="text-sm font-bold text-green-600">{{ $wishlist->products->count() }} </span>wishlist products
+                                            <p class="font-light"><span class="text-sm font-bold text-green-600">{{ $wishlist->products->count() }} </span>{{ __('Wishlist products') }}
                                             </p>
                                         </div>
                                     </div>
@@ -356,13 +356,15 @@
                                                 <i class="fa-regular fa-comment mt-4 h-7 w-16"></i>
                                             </div>
                                             <div class="pt-1 text-right">
-                                                <p class="text-sm font-light capitalize">Reviews</p>
+                                                <p class="text-sm font-light capitalize">
+                                                    {{ __('Reviews') }}
+                                                </p>
                                                 <h4 class="text-2xl font-semibold tracking-tighter xl:text-2xl">{{ $reviews->count() }}</h4>
                                             </div>
                                         </div>
                                         <hr class="opacity-50" />
                                         <div class="p-4">
-                                            <p class="font-light"><span class="text-sm font-bold text-red-600">{{ $reviews->count() }} </span>reviews last month</p>
+                                            <p class="font-light"><span class="text-sm font-bold text-red-600">{{ $reviews->count() }} </span>{{ __('Total reviews') }}</p>
                                         </div>
                                     </div>
                                 </div>

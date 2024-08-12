@@ -22,7 +22,7 @@
 
             <h2 
                 class="mt-8 text-center text-2xl font-bold leading-9 tracking-tight to-blue-500">
-                Sign in for free
+                {{ __('Sign in for free') }}
             </h2>
         
         </div>
@@ -36,7 +36,9 @@
                 @csrf
 
                     <div>
-                        <label for="name" class="block text-sm font-medium leading-6 text-balance">Username</label>
+                        <label for="name" class="block text-sm font-medium leading-6 text-balance">
+                            {{ __('Username') }}
+                        </label>
                         <div class="mt-2">
                             <input id="name" value="{{ old('name') }}" name="name" type="text" required
                                 class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-purple-600 shadow-sm ring-1 ring-inset ring-purple-500 focus:ring-2 focus:ring-inset focus:ring-balck sm:text-sm sm:leading-6 pl-3">
@@ -49,7 +51,9 @@
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-medium leading-6 text-balance">Email</label>
+                        <label for="email" class="block text-sm font-medium leading-6 text-balance">
+                            {{ __('Email') }}
+                        </label>
                         <div class="mt-2">
                             <input id="email" value="{{ old('email') }}" name="email" type="email" required
                                 class="block w-full rounded-md border-0 bg-white/5 py-1.5 text-purple-600 shadow-sm ring-1 ring-inset ring-purple-500 focus:ring-2 focus:ring-inset focus:ring-balck sm:text-sm sm:leading-6 pl-3">
@@ -63,7 +67,9 @@
 
                     <div>
                         <div class="flex items-center justify-between">
-                            <label for="password" class="block text-sm font-medium leading-6 text-black">Password</label>
+                            <label for="password" class="block text-sm font-medium leading-6 text-black">
+                                {{ __('Password') }}
+                            </label>
                         </div>
                         <div class="mt-2">
                             <input id="password" name="password" type="password" required
@@ -78,7 +84,9 @@
 
                     <div>
                         <div class="flex items-center justify-between">
-                            <label for="password_confirmation" class="block text-sm font-medium leading-6 text-black">Confirm Password</label>
+                            <label for="password_confirmation" class="block text-sm font-medium leading-6 text-black">
+                                {{ __('Confirm Password') }}
+                            </label>
                         </div>
                         <div class="mt-2">
                             <input id="password_confirmation" name="password_confirmation" type="password" required
@@ -94,16 +102,16 @@
                     <div>
                         <button type="submit"
                             class="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500">
-                            Create
+                            {{ __('Create Account') }}
                         </button>
                     </div>
 
             </form>
 
             <p class="mt-10 text-center text-sm text-gray-400">
-                Have an account?
+                {{ __('Have an account?') }}
                 <a href="{{ route('login') }}" class="font-semibold leading-6 text-purple-500 hover:text-purple-400">
-                    login
+                    {{ __('Login') }}
                 </a>
             </p>
 

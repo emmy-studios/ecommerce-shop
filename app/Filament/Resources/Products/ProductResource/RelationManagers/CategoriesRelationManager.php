@@ -9,13 +9,19 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Forms\Components\Select;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CategoriesRelationManager extends RelationManager
 {
     protected static string $relationship = 'categories';
 
-    protected static ?string $title = 'Categories related to the Product';
+    protected static ?string $title = null;
+
+    public static function getTitle(Model $ownerRecord, string $pageClass): string
+    {
+        return __('Categories related to the Product');
+    }
 
     public function form(Form $form): Form
     {
@@ -41,7 +47,8 @@ class CategoriesRelationManager extends RelationManager
                 Tables\Actions\AttachAction::make()
                     ->preloadRecordSelect()
                     ->multiple()
-                    ->recordSelect(fn (Select $select) => $select->placeholder('Select a Category/Categories')),
+                    ->recordSelect(fn (Select $select) => $select->placeholder('Select a Category/Categories'))
+                    ->modalHeading(__('Attach Category')),
             ])
             ->actions([
                 Tables\Actions\DetachAction::make(),
@@ -53,3 +60,4 @@ class CategoriesRelationManager extends RelationManager
             ]);
     }
 }
+ 
