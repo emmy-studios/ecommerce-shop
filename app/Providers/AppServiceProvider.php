@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
 use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,5 +29,12 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') == 'production') {
             $url->forceScheme('https');
         }
+
+        // Filament Language Switch Plugin
+        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+            $switch
+                ->locales(['es','en']);
+        });
+
     }
 }
