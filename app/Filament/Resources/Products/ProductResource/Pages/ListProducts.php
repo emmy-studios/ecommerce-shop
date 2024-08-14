@@ -16,9 +16,9 @@ class ListProducts extends ListRecords
             Actions\CreateAction::make()->label(__('Create Product')),
         ];
     }
-
+ 
     public function getTitle(): string
     {
         return __('Products');
     }
-}
+} 

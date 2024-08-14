@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateHeroproduct extends CreateRecord
 {
     protected static string $resource = HeroproductResource::class;
+
+    public function getTitle(): string
+    {
+        return __('Create Product Hero');
+    }
 }

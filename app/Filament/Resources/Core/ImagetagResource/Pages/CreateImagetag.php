@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateImagetag extends CreateRecord
 {
     protected static string $resource = ImagetagResource::class;
+
+    public function getTitle(): string
+    {
+        return __('Create Image Tag');
+    }
 }

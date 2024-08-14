@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateNewstag extends CreateRecord
 {
     protected static string $resource = NewstagResource::class;
+
+    public function getTitle(): string 
+    {
+        return __('Create Tag');
+    } 
 }

@@ -19,9 +19,9 @@ class ColorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-paint-brush';
 
-    protected static ?string $navigationLabel = "Product Color";
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = "Products";
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 4;
 
@@ -30,9 +30,11 @@ class ColorResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('product_color')
+                    ->label(__('Product Color'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('note')
+                    ->label(__('Note'))
                     ->columnSpanFull(),
             ]);
     }
@@ -42,13 +44,18 @@ class ColorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('product_color')
+                    ->label(__('Product Color'))
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('note')
+                    ->label(__('Note')),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -82,5 +89,17 @@ class ColorResource extends Resource
             'view' => Pages\ViewColor::route('/{record}'),
             'edit' => Pages\EditColor::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Colors');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Products');
     }
 }

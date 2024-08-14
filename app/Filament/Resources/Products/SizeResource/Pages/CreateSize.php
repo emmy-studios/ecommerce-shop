@@ -9,4 +9,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateSize extends CreateRecord
 {
     protected static string $resource = SizeResource::class;
+
+    public function getTitle(): string
+    {
+        return __('Create Size');
+    }
 }
+ 

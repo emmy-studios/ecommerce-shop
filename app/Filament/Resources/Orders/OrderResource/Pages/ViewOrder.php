@@ -12,8 +12,13 @@ class ViewOrder extends ViewRecord
 
     protected function getHeaderActions(): array
     {
-        return [
+        return [ 
             Actions\EditAction::make(),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return __('View Order');
     }
 }

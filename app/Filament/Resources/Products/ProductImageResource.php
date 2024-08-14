@@ -19,10 +19,10 @@ class ProductImageResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = "Product Image";
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = "Products";
-
+    protected static ?string $navigationGroup = null;
+ 
     protected static ?int $navigationSort = 2;
  
     public static function form(Form $form): Form
@@ -30,14 +30,17 @@ class ProductImageResource extends Resource
         return $form
             ->schema([
                 Forms\Components\FileUpload::make('image_url')
+                    ->label(__('Image Url'))
                     ->disk('public')
                     ->directory('product-images')
                     ->image()
                     ->imageEditor()
                     ->required(),
                 Forms\Components\MarkdownEditor::make('description')
+                    ->label(__('Description'))
                     ->columnSpanFull(),
                 Forms\Components\Select::make('product_id')
+                    ->label(__('Product'))
                     ->relationship('product', 'name')
                     ->required(),
             ]);
@@ -47,16 +50,19 @@ class ProductImageResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image_url'),
+                Tables\Columns\ImageColumn::make('image_url')
+                    ->label(__('Image Url')),
                 Tables\Columns\TextColumn::make('product.name')
                     ->numeric()
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -90,5 +96,17 @@ class ProductImageResource extends Resource
             'view' => Pages\ViewProductImage::route('/{record}'),
             'edit' => Pages\EditProductImage::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Products Images');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Products');
     }
 }

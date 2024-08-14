@@ -22,9 +22,9 @@ class OrderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
 
-    protected static ?string $navigationLabel = 'Orders';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Orders';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -33,18 +33,23 @@ class OrderResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('user_id')
+                    ->label(__('Username'))
                     ->relationship('user', 'name')
                     ->required(),
                 Forms\Components\TextInput::make('order_code')
+                    ->label(__('Order Code'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('subtotal')
+                    ->label(__('Subtotal'))
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('total')
+                    ->label(__('Total'))
                     ->required()
                     ->numeric(),
                 Forms\Components\Select::make('status')
+                    ->label(__('Status'))
                     ->options([
                         'pending' => 'pending',
                         'completed' => 'completed',
@@ -62,24 +67,31 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
+                    ->label(__('Username'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('order_code')
-                    ->searchable(),
+                    ->label(__('Order Code'))
+                    ->searchable(), 
                 Tables\Columns\TextColumn::make('subtotal')
+                    ->label(__('Subtotal'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('total')
+                    ->label(__('Total'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('status')
+                    ->label(__('Status'))
                     ->sortable()
                     ->searchable(),    
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -92,7 +104,7 @@ class OrderResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->headerActions([
-                ExportAction::make()->exporter(OrderExporter::class),
+                ExportAction::make()->exporter(OrderExporter::class)->label(__('Export Order')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -117,5 +129,17 @@ class OrderResource extends Resource
             'view' => Pages\ViewOrder::route('/{record}'),
             'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Orders');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Orders');
     }
 }

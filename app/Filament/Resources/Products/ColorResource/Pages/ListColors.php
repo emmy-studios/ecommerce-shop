@@ -13,7 +13,12 @@ class ListColors extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Color')),
         ];
     }
-}
+
+    public function getTitle(): string
+    {
+        return __('Colors');
+    }
+} 

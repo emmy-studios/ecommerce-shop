@@ -15,3 +15,4 @@ class CreateProduct extends CreateRecord
         return __('Create Product');
     }
 }
+ 

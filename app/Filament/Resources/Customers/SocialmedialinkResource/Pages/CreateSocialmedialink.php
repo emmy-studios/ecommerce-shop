@@ -8,5 +8,10 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateSocialmedialink extends CreateRecord
 {
-    protected static string $resource = SocialmedialinkResource::class;
+    protected static string $resource = SocialmedialinkResource::class; 
+
+    public function getTitle(): string
+    {
+        return __('Create Social Media');
+    }
 }

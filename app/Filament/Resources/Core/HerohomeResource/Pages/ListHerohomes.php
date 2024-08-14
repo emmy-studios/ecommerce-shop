@@ -13,7 +13,12 @@ class ListHerohomes extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Hero')),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return __('View Home Hero');
     }
 }

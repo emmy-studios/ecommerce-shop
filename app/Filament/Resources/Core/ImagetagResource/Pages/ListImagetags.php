@@ -13,7 +13,12 @@ class ListImagetags extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Tag')),
         ];
     }
-}
+
+    public function getTitle(): string
+    {
+        return __('View Image Tag');
+    }
+} 

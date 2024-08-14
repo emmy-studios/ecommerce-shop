@@ -16,4 +16,9 @@ class ViewNews extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    public function getTitle(): string 
+    {
+        return __('View News');
+    } 
 }

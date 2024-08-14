@@ -19,9 +19,9 @@ class HeroproductResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard';
 
-    protected static ?string $navigationLabel = 'Products Hero';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Website';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 5;
 
@@ -30,8 +30,10 @@ class HeroproductResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label(__('Title'))
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('hero_image')
+                    ->label(__('Image'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
@@ -44,13 +46,17 @@ class HeroproductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label(__('Title'))
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('hero_image'),
+                Tables\Columns\ImageColumn::make('hero_image')
+                    ->label(__('Image')),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -84,5 +90,17 @@ class HeroproductResource extends Resource
             'view' => Pages\ViewHeroproduct::route('/{record}'),
             'edit' => Pages\EditHeroproduct::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Products Hero');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Website');
     }
 }

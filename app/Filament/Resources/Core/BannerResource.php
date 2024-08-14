@@ -19,9 +19,9 @@ class BannerResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'Banner';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Website';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 2;
 
@@ -30,10 +30,13 @@ class BannerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('first_text')
+                    ->label(__('Title'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('second_text')
+                    ->label(__('Subtitle'))
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('banner_image')
+                    ->label(__('Image'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
@@ -46,15 +49,20 @@ class BannerResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('first_text')
+                    ->label(__('Title'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('second_text')
+                    ->label(__('Subtitle'))
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('banner_image'),
+                Tables\Columns\ImageColumn::make('banner_image')
+                    ->label(__('Image')),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -89,4 +97,17 @@ class BannerResource extends Resource
             'edit' => Pages\EditBanner::route('/{record}/edit'),
         ];
     }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Banners');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Website');
+    }
 }
+ 

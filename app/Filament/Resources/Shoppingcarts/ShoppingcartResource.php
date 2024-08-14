@@ -20,9 +20,9 @@ class ShoppingcartResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
-    protected static ?string $navigationLabel = 'Shoppingcarts';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Customers';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 5;
 
@@ -31,6 +31,7 @@ class ShoppingcartResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('user_id')
+                    ->label(__('Username'))
                     ->relationship('user', 'name')
                     ->required(),
             ]);
@@ -41,13 +42,16 @@ class ShoppingcartResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
+                    ->label(__('Username'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -81,5 +85,17 @@ class ShoppingcartResource extends Resource
             'view' => Pages\ViewShoppingcart::route('/{record}'),
             'edit' => Pages\EditShoppingcart::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Shoppingcarts');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Users');
     }
 }

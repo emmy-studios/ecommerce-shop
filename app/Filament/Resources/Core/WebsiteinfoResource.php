@@ -19,9 +19,9 @@ class WebsiteinfoResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
 
-    protected static ?string $navigationLabel = 'Website Information';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Website';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -30,6 +30,7 @@ class WebsiteinfoResource extends Resource
         return $form 
             ->schema([
                 Forms\Components\TextInput::make('website_name')
+                    ->label(__('Website Name'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('facebook_url')
                     ->maxLength(255),
@@ -42,31 +43,40 @@ class WebsiteinfoResource extends Resource
                 Forms\Components\TextInput::make('linkedin_url')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('main_mail')
+                    ->label(__('Main Mail'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('second_mail')
+                    ->label(__('Second Mail'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency')
+                    ->label(__('Currency'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('contact_address')
+                    ->label(__('Contact Address'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('currency_symbol')
+                    ->label(__('Currency Symbol'))
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('main_logo')
+                    ->label(__('Main Logo'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\FileUpload::make('admin_panel_logo')
+                    ->label(__('Admin Panel Logo'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\FileUpload::make('signup_logo')
+                    ->label(__('Authentication Logo'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\FileUpload::make('contact_image')
+                    ->label(__('Contact Image'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
@@ -79,6 +89,7 @@ class WebsiteinfoResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('website_name')
+                    ->label(__('Website Name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('facebook_url')
                     ->searchable(),
@@ -87,30 +98,40 @@ class WebsiteinfoResource extends Resource
                 Tables\Columns\TextColumn::make('twitter_url')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('contact_address')
+                    ->label(__('Contact Address'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tiktok')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('linkedin_url')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('main_mail')
+                    ->label(__('Main Mail'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('second_mail')
+                    ->label(__('Second Mail'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency')
+                    ->label(__('Currency'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('currency_symbol')
+                    ->label(__('Currency Symbol'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('main_logo')
+                    ->label(__('Main Logo'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('admin_panel_logo')
+                    ->label(__('Admin Panel Logo'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('signup_logo')
+                    ->label(__('Authentication Logo'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -144,5 +165,17 @@ class WebsiteinfoResource extends Resource
             'view' => Pages\ViewWebsiteinfo::route('/{record}'),
             'edit' => Pages\EditWebsiteinfo::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Website Information');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Website');
     }
 }

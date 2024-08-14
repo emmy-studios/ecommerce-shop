@@ -19,9 +19,9 @@ class AuthorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-pencil';
 
-    protected static ?string $navigationLabel = 'Authors';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'News';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 2;
 
@@ -30,10 +30,13 @@ class AuthorResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('first_name')
+                    ->label(__('First Name'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('last_name')
+                    ->label(__('Last Name'))
                     ->maxLength(255),
                 Forms\Components\TextInput::make('nickname')
+                    ->label(__('Nickname'))
                     ->maxLength(255),
             ]);
     }
@@ -43,18 +46,23 @@ class AuthorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')
+                    ->label(__('First Name'))
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('last_name')
+                    ->label(__('Last Name'))
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('nickname')
+                    ->label(__('Nickname'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -88,5 +96,17 @@ class AuthorResource extends Resource
             'view' => Pages\ViewAuthor::route('/{record}'),
             'edit' => Pages\EditAuthor::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Authors');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('News');
     }
 }

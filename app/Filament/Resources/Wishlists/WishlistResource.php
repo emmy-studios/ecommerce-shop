@@ -20,9 +20,9 @@ class WishlistResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-heart';
 
-    protected static ?string $navigationLabel = 'Wishlists';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Customers';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 4;
 
@@ -31,6 +31,7 @@ class WishlistResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('user_id')
+                    ->label(__('Username'))
                     ->relationship('user', 'name')
                     ->required(),
             ]);
@@ -41,14 +42,17 @@ class WishlistResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
+                    ->label(__('Username'))
                     ->numeric()
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -82,5 +86,17 @@ class WishlistResource extends Resource
             'view' => Pages\ViewWishlist::route('/{record}'),
             'edit' => Pages\EditWishlist::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Wishlists');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Users');
     }
 }

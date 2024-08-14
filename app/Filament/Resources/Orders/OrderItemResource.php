@@ -22,9 +22,9 @@ class OrderItemResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
-    protected static ?string $navigationLabel = 'Order Items';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Orders';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 2;
 
@@ -33,18 +33,23 @@ class OrderItemResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('order_id')
+                    ->label(__('Order'))
                     ->relationship('order', 'id')
                     ->required(),
                 Forms\Components\Select::make('product_id')
+                    ->label(__('Product'))
                     ->relationship('product', 'name')
                     ->required(),
                 Forms\Components\TextInput::make('quantity')
+                    ->label(__('Quantity'))
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('color')
+                    ->label(__('Color'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('size')
+                    ->label(__('Size'))
                     ->required()
                     ->maxLength(255),
             ]);
@@ -55,23 +60,30 @@ class OrderItemResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('order.id')
+                    ->label(__('Order'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('product.name')
+                    ->label(__('Product'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('quantity')
+                    ->label(__('Quantity'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('color')
+                    ->label(__('Color'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('size')
+                    ->label(__('Size'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -84,7 +96,7 @@ class OrderItemResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->headerActions([
-                ExportAction::make()->exporter(OrderItemExporter::class),
+                ExportAction::make()->exporter(OrderItemExporter::class)->label(__('Export Items')),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -109,5 +121,17 @@ class OrderItemResource extends Resource
             'view' => Pages\ViewOrderItem::route('/{record}'),
             'edit' => Pages\EditOrderItem::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Orders Items');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Orders');
     }
 }

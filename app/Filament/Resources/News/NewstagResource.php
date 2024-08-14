@@ -15,13 +15,13 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class NewstagResource extends Resource
 {
-    protected static ?string $model = Newstag::class;
+    protected static ?string $model = Newstag::class; 
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
-    protected static ?string $navigationLabel = 'News Tags';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'News';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 3;
 
@@ -30,8 +30,10 @@ class NewstagResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label(__('Name'))
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('description')
+                    ->label(__('Description'))
                     ->columnSpanFull(),
             ]);
     }
@@ -41,12 +43,18 @@ class NewstagResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('Name'))
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('description')
+                    ->label(__('Description'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -80,5 +88,17 @@ class NewstagResource extends Resource
             'view' => Pages\ViewNewstag::route('/{record}'),
             'edit' => Pages\EditNewstag::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('News Tags');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('News');
     }
 }

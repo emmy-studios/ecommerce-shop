@@ -21,9 +21,9 @@ class NewsResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
-    protected static ?string $navigationLabel = 'News';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'News';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -32,29 +32,39 @@ class NewsResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label(__('Title'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('subtitle')
+                    ->label(__('Subtitle'))
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('resume')
+                    ->label(__('Resume'))
                     ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('header')
+                    ->label(__('Header'))
                     ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('section_1')
+                    ->label(__('Section One'))
                     ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('section_2')
+                    ->label(__('Section Two'))
                     ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('content')
+                    ->label(__('Content'))
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('conclusion')
+                    ->label(__('Conclusion'))
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('header_image')
+                    ->label(__('Header Image'))
                     ->disk('public')
                     ->directory('news-images')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\FileUpload::make('second_image')
+                    ->label(__('Second Image'))
                     ->disk('public')
                     ->directory('news-images')
                     ->image()
@@ -67,17 +77,22 @@ class NewsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')
+                    ->label(__('Title'))
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('subtitle')
+                    ->label(__('Subtitle'))
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\ImageColumn::make('header_image'),
+                Tables\Columns\ImageColumn::make('header_image')
+                    ->label(__('Header Image')),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -112,5 +127,17 @@ class NewsResource extends Resource
             'view' => Pages\ViewNews::route('/{record}'),
             'edit' => Pages\EditNews::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('News');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('News');
     }
 }

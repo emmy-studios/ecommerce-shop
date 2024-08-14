@@ -9,4 +9,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateProductDetail extends CreateRecord
 {
     protected static string $resource = ProductDetailResource::class;
+
+    public function getTitle(): string
+    {
+        return __('Create Product Details');
+    }
 }
+ 

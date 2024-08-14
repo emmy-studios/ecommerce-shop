@@ -13,7 +13,12 @@ class ListOrderItems extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Item')),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return __('View Order Items');
     }
 }

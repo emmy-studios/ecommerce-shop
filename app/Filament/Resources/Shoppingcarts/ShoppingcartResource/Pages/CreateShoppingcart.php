@@ -9,4 +9,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateShoppingcart extends CreateRecord
 {
     protected static string $resource = ShoppingcartResource::class;
+
+    public function getTitle(): string
+    {
+        return __('View Shoppingcart');
+    }
+
 }

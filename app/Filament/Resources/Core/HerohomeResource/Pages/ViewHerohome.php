@@ -15,5 +15,10 @@ class ViewHerohome extends ViewRecord
         return [
             Actions\EditAction::make(),
         ];
+    } 
+
+    public function getTitle(): string
+    {
+        return __('View Home Hero');
     }
 }

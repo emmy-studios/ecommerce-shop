@@ -19,9 +19,9 @@ class ReviewResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-bottom-center-text';
 
-    protected static ?string $navigationLabel = 'Reviews';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Reviews';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 1;
 
@@ -30,12 +30,15 @@ class ReviewResource extends Resource
         return $form
             ->schema([
                 Forms\Components\MarkdownEditor::make('content')
+                    ->label(__('Content'))
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('user_id')
+                    ->label(__('User'))
                     ->relationship('user', 'name')
                     ->required(),
                 Forms\Components\Select::make('product_id')
+                    ->label(__('Product'))
                     ->relationship('product', 'name')
                     ->required(),
             ]);
@@ -46,18 +49,22 @@ class ReviewResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
+                    ->label(__('User'))
                     ->numeric()
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('product.name')
+                    ->label(__('Product'))
                     ->numeric()
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -92,4 +99,17 @@ class ReviewResource extends Resource
             'edit' => Pages\EditReview::route('/{record}/edit'),
         ];
     }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Reviews');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Reviews');
+    }
 }
+  

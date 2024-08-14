@@ -14,14 +14,14 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ImagetagResource extends Resource
-{
+{ 
     protected static ?string $model = Imagetag::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';
 
-    protected static ?string $navigationLabel = 'Image Tags';
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = 'Website';
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 3;
 
@@ -30,11 +30,13 @@ class ImagetagResource extends Resource
         return $form
             ->schema([ 
                 Forms\Components\FileUpload::make('image_url')
+                    ->label(__('Image'))
                     ->disk('public')
                     ->directory('core-images')
                     ->image()
                     ->imageEditor(),
                 Forms\Components\TextInput::make('text')
+                    ->label(__('Text'))
                     ->maxLength(255),
             ]);
     }
@@ -43,14 +45,18 @@ class ImagetagResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image_url'),
+                Tables\Columns\ImageColumn::make('image_url')
+                    ->label(__('Image')),
                 Tables\Columns\TextColumn::make('text')
+                    ->label(__('Text'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -84,5 +90,17 @@ class ImagetagResource extends Resource
             'view' => Pages\ViewImagetag::route('/{record}'),
             'edit' => Pages\EditImagetag::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Image Tags');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Website');
     }
 }

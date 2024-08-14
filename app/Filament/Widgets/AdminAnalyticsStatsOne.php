@@ -14,17 +14,17 @@ class AdminAnalyticsStatsOne extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Users', User::count())
+            Stat::make(__('Users'), User::count())
                 ->color('success')
                 ->description('Number of Active Users')
                 ->descriptionIcon('heroicon-o-users', IconPosition::Before)
                 ->chart([10, 20, 30, 70, 80]),
-            Stat::make('Reviews', Review::count())
+            Stat::make(__('Reviews'), Review::count())
                 ->description('Reviews of Products')
                 ->color('primary')
                 ->descriptionIcon('heroicon-o-chat-bubble-bottom-center-text', IconPosition::Before)
                 ->chart([1, 45, 3, 56, 78]),
-            Stat::make('Orders', Order::count())
+            Stat::make(__('Orders'), Order::count())
                 ->description('Users Orders')
                 ->color('info')
                 ->descriptionIcon('heroicon-o-clipboard-document-list', IconPosition::Before)

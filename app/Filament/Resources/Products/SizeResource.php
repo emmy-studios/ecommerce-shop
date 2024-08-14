@@ -19,9 +19,9 @@ class SizeResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
 
-    protected static ?string $navigationLabel = "Product Size";
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = "Products";
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 5;
 
@@ -30,9 +30,11 @@ class SizeResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('product_size')
+                    ->label(__('Product Size'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\MarkdownEditor::make('note')
+                    ->label(__('Note'))
                     ->columnSpanFull(),
             ]);
     }
@@ -42,13 +44,18 @@ class SizeResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('product_size')
+                    ->label(__('Product Size'))
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('note')
+                    ->label(__('Note')),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -69,7 +76,7 @@ class SizeResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
+        return [ 
             //
         ];
     }
@@ -82,5 +89,17 @@ class SizeResource extends Resource
             'view' => Pages\ViewSize::route('/{record}'),
             'edit' => Pages\EditSize::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Sizes');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Products');
     }
 }

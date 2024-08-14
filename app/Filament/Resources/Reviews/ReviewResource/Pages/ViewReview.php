@@ -15,5 +15,10 @@ class ViewReview extends ViewRecord
         return [
             Actions\EditAction::make(),
         ];
-    }
+    } 
+
+    public function getTitle(): string 
+    {
+        return __('View Review');
+    } 
 }

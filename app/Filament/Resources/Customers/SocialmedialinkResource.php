@@ -11,7 +11,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\SoftDeletingScope; 
 
 class SocialmedialinkResource extends Resource
 {
@@ -19,9 +19,9 @@ class SocialmedialinkResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
 
-    protected static ?string $navigationLabel = 'Social Links';
+    protected static ?string $navigationLabel = null;
     
-    protected static ?string $navigationGroup = 'Customers';
+    protected static ?string $navigationGroup = null;
     
     protected static ?int $navigationSort = 3;
     
@@ -41,6 +41,7 @@ class SocialmedialinkResource extends Resource
                 Forms\Components\TextInput::make('tiktok_url')
                     ->maxLength(255),
                 Forms\Components\Select::make('user_id')
+                    ->label(__('Username'))
                     ->relationship('user', 'name')
                     ->required(),
             ]);
@@ -66,13 +67,16 @@ class SocialmedialinkResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('user.name')
+                    ->label(__('Username'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('Updated at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -106,5 +110,17 @@ class SocialmedialinkResource extends Resource
             'view' => Pages\ViewSocialmedialink::route('/{record}'),
             'edit' => Pages\EditSocialmedialink::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Social Media Links');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Users');
     }
 }

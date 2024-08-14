@@ -13,7 +13,12 @@ class ListNews extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create News')),
         ];
     }
+
+    public function getTitle(): string 
+    {
+        return __('View News');
+    } 
 }

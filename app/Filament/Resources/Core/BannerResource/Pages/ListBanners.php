@@ -13,7 +13,12 @@ class ListBanners extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Banner')),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return __('View Banner');
     }
 }

@@ -13,7 +13,12 @@ class ViewSocialmedialink extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            Actions\EditAction::make(),
+            Actions\EditAction::make(), 
         ];
     }
+
+    public function getTitle(): string 
+    {
+        return __('View Social Media Links');
+    } 
 }

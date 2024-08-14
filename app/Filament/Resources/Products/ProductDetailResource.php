@@ -19,9 +19,9 @@ class ProductDetailResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
-    protected static ?string $navigationLabel = "Product Detail";
+    protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = "Products";
+    protected static ?string $navigationGroup = null;
 
     protected static ?int $navigationSort = 3;
 
@@ -30,12 +30,15 @@ class ProductDetailResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('product_id')
+                    ->label(__('Product'))
                     ->relationship('product', 'name')
                     ->required(),
                 Forms\Components\Select::make('size_id')
+                    ->label(__('Size'))
                     ->relationship('size', 'product_size')
                     ->required(),
                 Forms\Components\Select::make('color_id')
+                    ->label(__('Color'))
                     ->relationship('color', 'product_color')
                     ->required(),
             ]);
@@ -92,5 +95,17 @@ class ProductDetailResource extends Resource
             'view' => Pages\ViewProductDetail::route('/{record}'),
             'edit' => Pages\EditProductDetail::route('/{record}/edit'),
         ];
+    }
+
+    // Método para obtener el label traducido.
+    public static function getNavigationLabel(): string
+    {
+        return __('Product Details');
+    }
+ 
+    // Método para obtener el grupo de navegación traducido.
+    public static function getNavigationGroup(): string
+    {
+        return __('Products');
     }
 }

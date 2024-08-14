@@ -13,7 +13,12 @@ class ListAuthors extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Author')),
         ];
     }
+
+    public function getTitle(): string 
+    {
+        return __('Authors');
+    } 
 }

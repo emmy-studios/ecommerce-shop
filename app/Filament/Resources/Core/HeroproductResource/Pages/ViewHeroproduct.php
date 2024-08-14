@@ -16,4 +16,9 @@ class ViewHeroproduct extends ViewRecord
             Actions\EditAction::make(),
         ];
     }
+
+    public function getTitle(): string
+    {
+        return __('View Product Hero');
+    }
 }

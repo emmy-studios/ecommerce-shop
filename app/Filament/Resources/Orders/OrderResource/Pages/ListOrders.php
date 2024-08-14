@@ -13,7 +13,12 @@ class ListOrders extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Order')),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return __('View Order');
     }
 }

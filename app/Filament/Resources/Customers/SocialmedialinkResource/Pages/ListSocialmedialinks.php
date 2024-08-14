@@ -13,7 +13,12 @@ class ListSocialmedialinks extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label(__('Create Social Media')),
         ];
     }
-}
+
+    public function getTitle(): string
+    {
+        return __('Social Media Links');
+    }
+} 

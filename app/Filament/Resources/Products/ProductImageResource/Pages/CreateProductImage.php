@@ -8,5 +8,10 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateProductImage extends CreateRecord
 {
-    protected static string $resource = ProductImageResource::class;
+    protected static string $resource = ProductImageResource::class; 
+    
+    public function getTitle(): string
+    {
+        return __('Create Product Image');
+    }
 }
