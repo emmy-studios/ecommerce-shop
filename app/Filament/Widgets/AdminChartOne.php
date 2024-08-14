@@ -9,10 +9,15 @@ use Flowframe\Trend\TrendValue;
 
 class AdminChartOne extends ChartWidget
 {
-    protected static ?string $heading = 'Users Per Month';
+    protected static ?string $heading = null;
 
-    protected function getData(): array
+    public function getHeading(): string
     {
+        return __('Users Per Month'); 
+    }
+
+    protected function getData(): array 
+    { 
         $data = Trend::model(User::class)
             ->between(
                 start: now()->startOfYear(),
@@ -24,7 +29,7 @@ class AdminChartOne extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Users Created',
+                    'label' => __('Users Created'),
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate),
                 ],
             ],

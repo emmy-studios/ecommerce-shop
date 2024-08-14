@@ -9,7 +9,12 @@ use Flowframe\Trend\TrendValue;
 
 class AdminChartTwo extends ChartWidget
 {
-    protected static ?string $heading = 'Orders Per Month';
+    protected static ?string $heading = null;
+
+    public function getHeading(): string
+    {
+        return __('Orders Per Month'); 
+    }
 
     protected function getData(): array
     {
@@ -24,7 +29,7 @@ class AdminChartTwo extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Orders Created',
+                    'label' => __('Orders Created'),
                     'data' => $data->map(fn (TrendValue $value) => $value->aggregate)
                 ]
             ],
