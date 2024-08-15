@@ -87,14 +87,35 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
-                </button>
+                </button>  
             </div>
             
             {{-- Language Options --}}
             <div x-show="languageDropdown" x-cloak class="flex flex-col bg-purple-200 text-purple-600 pl-8">
-                <a href="{{ route(Route::currentRouteName(), ['locale' => 'es']) }}" class="py-2 hover:bg-purple-500 hover:text-white">Español</a>
-                <a href="{{ route(Route::currentRouteName(), ['locale' => 'en']) }}" class="py-2 hover:bg-purple-500 hover:text-white">English</a>
-            </div>
+
+                <div class="py-2 flex flex-row items-center">
+                    <a 
+                        href="{{ route(Route::currentRouteName(), ['locale' => 'es']) }}">
+                        {{ __('Spanish') }}
+                    </a>
+                    <img
+                        class="w-8" 
+                        src="{{ asset('assets/images/flags/spain-flag.png') }}" 
+                        alt="Spain Flag">
+                </div>
+
+                <div class="py-2 flex flex-row items-center">
+                    <a 
+                        href="{{ route(Route::currentRouteName(), ['locale' => 'en']) }}">
+                        {{ __('English') }}
+                    </a>
+                    <img
+                        class="w-8" 
+                        src="{{ asset('assets/images/flags/us-flag.png') }}" 
+                        alt="United States Flag">
+                </div>
+
+            </div>  
         </div>
 
     </div>

@@ -319,5 +319,7 @@
     "No order for user.": "No hay pedido para el usuario.",
     "Print": "Imprimir",
     "Make an Order": "Hacer la Orden",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "English": "Inglés",
+    "Spanish": "Español"
 } 
