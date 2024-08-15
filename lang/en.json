@@ -303,5 +303,12 @@
     "Forgot Password?": "Forgot Password?",
     "Change": "Change",
     "Reset Password": "Reset Password",
-    "Apply the discount in your order": "Apply the discount in your order"
+    "Apply the discount in your order": "Apply the discount in your order",
+    "INVOICE": "INVOICE",
+    "EDIT": "EDIT",
+    "REPORT": "REPORT",
+    "Action": "Action",
+    "No order for user.": "No order for user.",
+    "Print": "Print",
+    "Make an Order": "Make an Order"
 }  

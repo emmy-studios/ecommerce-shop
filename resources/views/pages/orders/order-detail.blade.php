@@ -122,7 +122,7 @@
             href="{{ route('invoice.generate', ['id' => $order->id]) }}"
             target="_blank"
             >
-            Print 
+            {{ __('Print') }} 
         </a>
     </aside>
 

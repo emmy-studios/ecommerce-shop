@@ -59,7 +59,7 @@ class PaymentController extends Controller
         return view('pages.orders.order-success');
     }
 
-    public function payMethodEdit($id)
+    public function payMethodEdit($locale, $id)
     {
 
         $oldOrder = Order::findOrFail($id);

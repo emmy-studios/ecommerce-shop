@@ -132,7 +132,7 @@
                             @if($orders->isEmpty())
 
                                 <p class="px-8 pb-2 text-red-700">
-                                    No order for user.
+                                    {{ __('No order for user.') }}
                                 </p>
                                 
 
@@ -142,7 +142,7 @@
                                     <a 
                                         class="px-4 py-2 bg-blue-600 text-white hover:bg-blue-500 rounded-sm cursor-pointer"
                                         href="{{ route('order.cancel') }}">
-                                        Cancel an Order
+                                        {{ __('Cancel an Order') }}
                                     </a>
                                 </div>
 
@@ -151,12 +151,12 @@
                                         <table class="min-w-full bg-white border">
                                             <thead>
                                                 <tr class="w-full bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                                    <th class="py-3 px-6 text-left">Order Code</th>
-                                                    <th class="py-3 px-6 text-left">Total</th>
+                                                    <th class="py-3 px-6 text-left">{{ __('Order Code') }}</th>
+                                                    <th class="py-3 px-6 text-left">{{ __('Total') }}</th>
                                                     <th class="py-3 px-6 text-left">Date</th>
                                                     <th class="py-3 px-6 text-left">Time</th>
-                                                    <th class="py-3 px-6 text-left">Status</th>
-                                                    <th class="py-3 px-6 text-left">Action</th>
+                                                    <th class="py-3 px-6 text-left">{{ __('Status') }}</th>
+                                                    <th class="py-3 px-6 text-left">{{ __('Action') }}</th>
                                                 </tr>
                                             </thead>
                                             <tbody class="text-gray-600 text-sm font-light">
@@ -228,7 +228,7 @@
                                                                 <a 
                                                                     class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50" 
                                                                     href="{{ route('order.show', ['id' => $order->id]) }}">
-                                                                    INVOICE
+                                                                    {{ __('INVOICE') }}
                                                                 </a>
                                                             
                                                             </td>
@@ -237,7 +237,7 @@
                                                                 <a 
                                                                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50" 
                                                                     href="{{ route('order.report', ['id' => $order->id]) }}">
-                                                                    REPORT
+                                                                    {{ __('REPORT') }}
                                                                 </a>
                                                             
                                                             </td>
@@ -246,7 +246,7 @@
                                                                 <a 
                                                                     class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50" 
                                                                     href="{{ route('order.report', ['id' => $order->id]) }}">
-                                                                    REPORT
+                                                                    {{ __('REPORT') }}
                                                                 </a>
                                                             
                                                             </td>
@@ -255,7 +255,7 @@
                                                                 <a 
                                                                     class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50" 
                                                                     href="{{ route('order.show', ['id' => $order->id]) }}">
-                                                                    INVOICE
+                                                                    {{ __('INVOICE') }}
                                                                 </a>
                                                             
                                                             </td>
@@ -264,7 +264,7 @@
                                                                 <a 
                                                                     class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50" 
                                                                     href="{{ route('payment.method.edit', ['id' => $order->id]) }}">
-                                                                    EDIT
+                                                                    {{ __('EDIT') }}
                                                                 </a>
                                                             
                                                             </td>
@@ -273,7 +273,7 @@
                                                                 <a 
                                                                     class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50" 
                                                                     href="{{ route('payment.method.edit', ['id' => $order->id]) }}">
-                                                                    EDIT
+                                                                    {{ __('EDIT') }}
                                                                 </a>
                                                             
                                                             </td>

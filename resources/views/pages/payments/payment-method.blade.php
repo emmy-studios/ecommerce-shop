@@ -25,7 +25,7 @@
                             <a 
                                 class="py-3 my-2 text-lg text-center bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white"
                                 href="{{ route('payment.email') }}">
-                                {{ _('Continue by Email') }}
+                                {{ __('Continue by Email') }}
                             </a>
                             <a 
                                 class="py-3 my-2 text-lg text-center bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white"

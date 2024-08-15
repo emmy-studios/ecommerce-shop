@@ -311,5 +311,12 @@
     "Forgot Password?": "¿Has olvidado tu contraseña?",
     "Change": "Cambiar",
     "Reset Password": "Restablecer contraseña",
-    "Apply the discount in your order": "Aplica el descuento en tu pedido"
+    "Apply the discount in your order": "Aplica el descuento en tu pedido",
+    "INVOICE": "FACTURA",
+    "EDIT": "EDITAR",
+    "REPORT": "REPORTE",
+    "Action": "Acción",
+    "No order for user.": "No hay pedido para el usuario.",
+    "Print": "Imprimir",
+    "Make an Order": "Hacer la Orden"
 } 
