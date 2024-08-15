@@ -11,7 +11,7 @@
         <section class="my-10">
 
             <div class="py-6 text-center">
-                <h1 class="font-bold text-3xl">Your Wishlist</h1>
+                <h1 class="font-bold text-3xl">{{ __('Your Wishlist') }}</h1>
             </div>
 
         </section>
@@ -21,7 +21,7 @@
             @if($products->isEmpty())
 
                 <p>
-                    No products added.
+                    {{ __('No products added') }}.
                 </p>
             
             @else
@@ -39,13 +39,13 @@
                     class="text-red-700 hover:text-red-500 hover:cursor-pointer py-2"
                     href="{{ route('products') }}"
                     >
-                    Continue to Shopping
+                    {{ __('Continue to Shopping') }}
                 </a>
                 <a 
                     class="font-bold px-4 py-2 bg-purple-600 text-white hover:bg-purple-500 rounded-xl"
                     href="{{ route('products') }}"
                     >
-                    Products
+                    {{ __('Products') }}
                 </a>
             </div>
 

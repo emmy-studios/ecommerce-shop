@@ -17,7 +17,7 @@
         </div>
         
         <div class="grid max-w-2xl grid-cols-1 gap-8 mx-auto mt-8 auto-rows-fr lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            @foreach($latestNews as $news)
+            @foreach($latestNews as $news) 
                 <article
                     class="relative flex flex-col justify-end px-4 pt-40 pb-4 overflow-hidden bg-gray-900 md:pt-28 isolate rounded-xl dark:shadow dark:shadow-gray-400/50">
                     
@@ -31,7 +31,7 @@
 
                     <a 
                         class="text-lg font-semibold leading-6 text-white hover:text-teal-100" 
-                        href="{{ route('news.show', ['id' => $news->id]) }}"
+                        href="{{ route('news.show', ['locale' => app()->getLocale(), 'id' => $news->id]) }}"
                         >
                         {{ $news->getTitleLimitAttribute() }}
                     </a>

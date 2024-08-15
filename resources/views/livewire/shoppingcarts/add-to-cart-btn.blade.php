@@ -3,7 +3,7 @@
     <button
         wire:click="addProductToCart"
         class="px-8 py-2 bg-purple-600 text-white text-sm font-medium rounded hover:bg-purple-500 focus:outline-none focus:bg-purple-500">
-        Add to Cart
+        {{ __('Add to Cart') }}
     </button>
 
     @if (session()->has('message'))

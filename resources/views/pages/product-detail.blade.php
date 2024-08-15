@@ -55,14 +55,14 @@
                         <hr class="my-3">
                         
                         <div class="mt-2">
-                            <label class="text-gray-700 text-sm" for="count">Quantity:</label>
+                            <label class="text-gray-700 text-sm" for="count">{{ __('Quantity') }}:</label>
                             <div class="flex mt-1">
                                 <span class="text-gray-700 text-lg mx-2">{{ $product->selling_quantity }}</span>
                             </div>
                         </div>
                         
                         <div class="mt-3">
-                            <label class="text-gray-700 text-sm" for="count">Color:</label>
+                            <label class="text-gray-700 text-sm" for="count">{{ __('Color') }}:</label>
                             <div class="flex items-center mt-1 space-x-2">
                                 @foreach($uniqueColors as $detail)
 
@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="mt-3">
-                            <label class="text-gray-700 text-sm" for="count">Sizes:</label>
+                            <label class="text-gray-700 text-sm" for="count">{{ __('Sizes') }}:</label>
                             <div class="flex items-center mt-1 space-x-2">
 
                                 @foreach($product->productDetails as $detail)

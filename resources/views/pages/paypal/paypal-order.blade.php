@@ -11,7 +11,7 @@
         <div class="max-w-md mx-auto bg-gray-100 shadow-md rounded-md overflow-hidden mt-16">
             
             <div class="bg-purple-600 text-white p-4 flex justify-between">
-                <div class="font-bold text-lg">Pay using PayPal account</div>
+                <div class="font-bold text-lg">{{ __('Pay using PayPal account') }}</div>
                 <div class="text-lg"><i class="fa-brands fa-cc-paypal"></i></div>
             </div>
 
@@ -23,7 +23,7 @@
 
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="email">
-                            Email:
+                            {{ __('Email') }}:
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -36,7 +36,7 @@
                     <div class="mb-4">
     
                         <label class="block text-gray-700 font-bold mb-2" for="total">
-                            Total
+                            {{ __('Total') }}
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -50,7 +50,7 @@
                     <div class="mb-4">
     
                         <label class="block text-gray-700 font-bold mb-2" for="currency">
-                            Currency
+                            {{ __('Currency') }}
                         </label>
                         <input
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -63,7 +63,7 @@
                     <button
                         type="submit"
                         class="bg-purple-600 text-white py-2 px-4 rounded font-bold hover:bg-purple-700 focus:outline-none focus:shadow-outline">
-                        Confirm Data
+                        {{ __('Confirm Data') }}
                     </button>
 
 

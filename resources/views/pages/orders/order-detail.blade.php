@@ -22,23 +22,23 @@
                 </div>
                 <div class="flex flex-col gap-3 border-b py-6 text-xs">
                     <p class="flex justify-between">
-                        <span class="text-gray-400">Order Code:</span>
+                        <span class="text-gray-400">{{ __('Order Code') }}:</span>
                         <span>{{ $order->order_code }}</span>
                     </p>
                     <p class="flex justify-between">
-                        <span class="text-gray-400">Customer:</span>
+                        <span class="text-gray-400">{{ __('Customer') }}:</span>
                         <span>{{ $user->first_name }} {{ $user->last_name }}</span>
                     </p>
                     <p class="flex justify-between">
-                        <span class="text-gray-400">Email:</span>
+                        <span class="text-gray-400">{{ __('Email') }}:</span>
                         <span>{{ $user->email }}</span>
                     </p>
                     <p class="flex justify-between">
-                        <span class="text-gray-400">Phone:</span>
+                        <span class="text-gray-400">{{ __('Phone Number') }}:</span>
                         <span>{{ $user->phone_code }} {{ $user->phone_number }}</span>
                     </p>
                     <p class="flex justify-between">
-                        <span class="text-gray-400">Sub Total:</span>
+                        <span class="text-gray-400">{{ __('Subtotal') }}:</span>
                         @if($websiteInfo && $websiteInfo->currency_symbol)
                             <span>{{ $websiteInfo->currency_symbol }}{{ $order->subtotal }}</span>
                         @else
@@ -46,7 +46,7 @@
                         @endif
                     </p>
                     <p class="flex justify-between">
-                        <span class="text-gray-400">Total:</span>
+                        <span class="text-gray-400">{{ __('Total') }}:</span>
                         @if($websiteInfo && $websiteInfo->currency_symbol)
                             <span>{{ $websiteInfo->currency_symbol }}{{ $order->total }}</span>
                         @else
@@ -59,9 +59,9 @@
                     <table class="w-full text-left">
                         <thead>
                             <tr class="flex">
-                                <th class="w-full py-2">Product</th>
+                                <th class="w-full py-2">{{ __('Product') }}</th>
                                 <th class="min-w-[44px] py-2">#</th>
-                                <th class="min-w-[44px] py-2">Price</th>
+                                <th class="min-w-[44px] py-2">{{ __('Price') }}</th>
                             </tr>
                         </thead>
                         <tbody>

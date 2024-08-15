@@ -17,12 +17,12 @@
                     <div class="flex justify-center items-start flex-col xl:w-2/5 md:w-5/12 xl:px-7 px-6 md:px-0 md:py-0 py-5 ">
                         <div>
                             <p class="text-3xl xl:text-4xl font-semibold leading-9 text-gray-800 dark:text-white">
-                                Act before it’s too late!
+                                {{ __('Act before it’s too late!') }}
                             </p>
                         </div>
                         <div class="xl:mt-4 mt-2">
                             <p class="text-base xl:text-xl leading-7 text-gray-600 dark:text-white pr-4">
-                                Apply the discount in your order {{ $discount->discount_code }}.
+                                {{ __('Apply the discount in your order') }} {{ $discount->discount_code }}.
                             </p>
                         </div>
                     </div>

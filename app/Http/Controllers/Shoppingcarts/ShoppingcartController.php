@@ -10,7 +10,7 @@ use App\Models\Shoppingcarts\Shoppingcart;
 
 class ShoppingcartController extends Controller
 {
-    public function show($id)
+    public function show($locale, $id)
     {
 
         $shoppingcart = Shoppingcart::findOrFail($id);

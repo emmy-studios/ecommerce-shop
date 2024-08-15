@@ -17,7 +17,7 @@ class NewsController extends Controller
         return view('pages.news', compact('newsPosts'));
     }
 
-    public function show($id)
+    public function show($locale, $id)
     {
 
         $news = News::with(['authors', 'newstags'])->findOrFail($id);

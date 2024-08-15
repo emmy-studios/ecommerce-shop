@@ -92,27 +92,27 @@
                 <h1>{{ config('app.name') }}</h1>
                 <div class="date">
                     <p>{{ $createdAt }}</p>
-                    <p>Order Code: {{ $order->order_code }}</p>
+                    <p>{{ __('Order Code') }}: {{ $order->order_code }}</p>
                 </div>
             </div>
 
             <div class="customer-info">
                 <h2>Customer Information</h2>
-                <p><strong>Username:</strong> {{ $user->name }}</p>
-                <p><strong>Name:</strong> {{ $user->first_name }} {{ $user->last_name }}</p>
-                <p><strong>Email:</strong> {{ $user->email }}</p>
-                <p><strong>Phone:</strong> {{ $user->phone_code }} {{ $user->phone_number }}</p>
-                <p><strong>Billing Address:</strong> {{ $user->address->address_line_1 }}</p>
+                <p><strong>{{ __('Username') }}:</strong> {{ $user->name }}</p>
+                <p><strong>{{ __('Name') }}:</strong> {{ $user->first_name }} {{ $user->last_name }}</p>
+                <p><strong>{{ __('Email') }}:</strong> {{ $user->email }}</p>
+                <p><strong>{{ __('Phone') }}:</strong> {{ $user->phone_code }} {{ $user->phone_number }}</p>
+                <p><strong>{{ __('Shipping Address') }}:</strong> {{ $user->address->address_line_1 }}</p>
             </div>
 
             <div class="products">
-                <h2>Products</h2>
+                <h2>{{ __('Products') }}</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>{{ __('Product') }}</th>
                             <th>Qty</th>
-                            <th>Price</th>
+                            <th>{{ __('Price') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -129,9 +129,9 @@
             </div>
 
             <div class="order-summary">
-                <p><strong>Subtotal:</strong> {{ $order->subtotal }}</p>
-                <p><strong>Total:</strong> {{ $order->total }}</p>
-                <p><strong>Currency:</strong> {{ config('paypal.currency') }}</p>
+                <p><strong>{{ __('Subtotal') }}:</strong> {{ $order->subtotal }}</p>
+                <p><strong>{{ __('Total') }}:</strong> {{ $order->total }}</p>
+                <p><strong>{{ __('Currency') }}:</strong> {{ config('paypal.currency') }}</p>
             </div>
         </div>
     </body> 

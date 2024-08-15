@@ -14,7 +14,9 @@
                 <div class="bg-white min-w-1xl flex flex-col rounded-xl shadow-lg">
                     
                     <div class="px-12 py-5">
-                        <h2 class="text-gray-800 text-3xl font-semibold">Choose how to pay your order!</h2>
+                        <h2 class="text-gray-800 text-3xl font-semibold">
+                            {{ __('Choose how to pay your order!') }}
+                        </h2>
                     </div>
                     
                     <div class="bg-gray-200 w-full flex flex-col items-center py-4">
@@ -23,12 +25,12 @@
                             <a 
                                 class="py-3 my-2 text-lg text-center bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white"
                                 href="{{ route('payment.email') }}">
-                                Continue by Email
+                                {{ _('Continue by Email') }}
                             </a>
                             <a 
                                 class="py-3 my-2 text-lg text-center bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl text-white"
                                 href="{{ route('paypal.order') }}">
-                                Pay with PayPal
+                                {{ __('Pay with PayPal') }}
                             </a>
                         
                         </div>

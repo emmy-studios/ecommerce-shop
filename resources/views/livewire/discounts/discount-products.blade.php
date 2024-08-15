@@ -3,14 +3,16 @@
     @if (!empty($productsWithDiscounts))
 
         <div class="flex flex-row justify-start p-10">
-            <h1 class="font-bold text-2xl mb-4 text-black">Products with Discounts</h1>
+            <h1 class="font-bold text-2xl mb-4 text-black">
+                {{ __('Products with Discounts') }}
+            </h1>
         </div>
 
         <div class="flex flex-row justify-end px-6">
             <a 
                 class="text-purple-600"
                 href="{{ route('products') }}">
-                View More
+                {{ __('View More') }}
             </a>
         </div>
 
@@ -55,13 +57,13 @@
                         
                         </div>
                         <div class="flex items-center flex-wrap py-2">
-                            <p class="text-sm">code: {{ $product->discount->discount_code }}</p>
+                            <p class="text-sm">{{ __('code') }}: {{ $product->discount->discount_code }}</p>
                         </div>
                         
                         <a 
                             href="{{ route('product.show', ['id' => $product->id]) }}" 
                             class="flex items-center justify-center rounded-md bg-purple-800 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-purple-500 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                            <i class="fa-solid fa-cart-shopping"></i>Details
+                            <i class="fa-solid fa-cart-shopping"></i>{{ __('Details') }}
                         </a>
 
                     </div>

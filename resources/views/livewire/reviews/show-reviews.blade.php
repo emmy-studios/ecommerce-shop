@@ -1,13 +1,13 @@
 <div class="flex my-10 pt-4">
     <div class="w-full bg-white rounded-lg border p-2 my-4 mx-6">
-        <h3 class="font-bold">Reviews</h3>
+        <h3 class="font-bold">{{ __('Reviews') }}</h3>
 
         <div class="flex flex-col">
 
             @if($reviews->isEmpty())
 
                 <p class="py-4 pl-2">
-                    No reviews for this product.
+                    {{ __('No reviews for this product.') }}
                 </p>
 
             @else
@@ -45,7 +45,7 @@
                         class="bg-purple-100 rounded border border-purple-500 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-purple-400 focus:outline-none focus:bg-white"
                         name="content"
                         wire:model="content"
-                        placeholder="Type Your Review"
+                        placeholder={{ __('Type Your Review') }}
                         required
                     ></textarea>
                 </div> 
@@ -54,7 +54,7 @@
                     <input
                         type="submit"
                         class="px-2.5 py-1.5 rounded-md text-white text-sm bg-purple-600 hover:bg-purple-500"
-                        value="Post Review"
+                        value={{ __('Post Review') }}
                     />
                 </div>
             </form>

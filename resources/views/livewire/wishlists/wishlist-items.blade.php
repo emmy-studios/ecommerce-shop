@@ -1,7 +1,7 @@
 <div class="container mx-auto px-4 py-8">
 
     <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-        <h1 class="text-2xl font-bold my-4">Wishlist Items</h1>
+        <h1 class="text-2xl font-bold my-4">{{ __('Wishlist Items') }}</h1>
         {{--<a 
             class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
             href="{{ route('order.create') }}"
@@ -40,7 +40,7 @@
     </div>
 
     <div class="flex justify-end items-center mt-8">
-        <span class="text-gray-600 mr-4">Total:</span>
+        <span class="text-gray-600 mr-4">{{ __('Total') }}:</span>
         <span class="text-xl font-bold">{{ $totalProducts }}</span>
     </div>
 

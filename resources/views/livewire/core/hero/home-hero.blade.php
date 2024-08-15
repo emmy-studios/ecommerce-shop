@@ -59,9 +59,9 @@
                 <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
                     
                     <h1 class="text-3xl font-extrabold sm:text-5xl">
-                        Let us find your
+                        {{ __('Let us find your') }}
 
-                        <strong class="block font-extrabold text-purple-700"> Forever Home. </strong>
+                        <strong class="block font-extrabold text-purple-700"> {{ __('Forever Home') }}. </strong>
                     </h1>
 
                     <p class="mt-4 max-w-lg sm:text-xl/relaxed">

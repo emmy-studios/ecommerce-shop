@@ -10,7 +10,7 @@ use App\Models\Wishlists\Wishlist;
 
 class WishlistController extends Controller
 {
-    public function show($id)
+    public function show($locale, $id)
     {
         $wishlist = Wishlist::with('products')->findOrFail($id);
 

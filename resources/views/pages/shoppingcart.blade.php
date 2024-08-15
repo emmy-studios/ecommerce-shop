@@ -21,7 +21,7 @@
                     class="text-red-700 hover:text-red-500 hover:cursor-pointer"
                     href="{{ route('products') }}"
                     >
-                    Continue to Shopping
+                    {{ __('Continue to Shopping') }}
                 </a>
             </div>
 

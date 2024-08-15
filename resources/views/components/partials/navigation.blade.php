@@ -9,7 +9,7 @@
 
             {{-- Navbar Items --}}
             <div 
-                x-data="{ productsShow: false, blogShow: false }" 
+                x-data="{ productsShow: false, blogShow: false, languageSwitch: false }" 
                 class="relative hidden sm:block text-gray-500">
                 
                 <ul class="flex flex-row space-x-4">
@@ -17,12 +17,18 @@
                     <li><a wire:navigate href="{{ route('products') }}">{{ __('Products') }}</a></li>
                     <li><a wire:navigate href="{{ route('contact.us') }}">{{ __('Contact Us') }}</a></li>
                     <li><a wire:navigate href="{{ route('news') }}">{{ __('News') }}</a></li>        
-
-                    <button @click="blogShow = !blogShow">
+                    
+                    {{-- brands --}}
+                    {{--<button @click="blogShow = !blogShow">
                         <li><a href="#">{{ __('Brands') }}</a></li>
                     </button>
-                    {{-- brands --}}
-                    <livewire:dropdowns.brands-dropdowns />
+                    <livewire:dropdowns.brands-dropdowns />--}}
+ 
+                    {{-- Language Switcher --}}
+                    <button @click="languageSwitch = !languageSwitch">
+                        <li><a href="#">Language</a></li>
+                    </button>
+                    <livewire:dropdowns.language-switcher />
 
                 </ul>
             </div>

@@ -22,7 +22,7 @@ class ProductController extends Controller
         return view('pages.products-list', compact('categories', 'products'));
     }
 
-    public function show($id)
+    public function show($locale, $id)
     {
         $product = Product::with(['productImages', 'productDetails.color', 'productDetails.size'])->findOrFail($id);
         $websiteInfo = Websiteinfo::first();

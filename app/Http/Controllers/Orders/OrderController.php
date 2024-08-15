@@ -23,7 +23,7 @@ class OrderController extends Controller
         //
     }
 
-    public function show($id)
+    public function show($locale, $id)
     {   
         $user = Auth::user();
         $order = Order::findOrFail($id); 

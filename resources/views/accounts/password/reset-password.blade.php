@@ -22,7 +22,7 @@
 
             <h2 
                 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight to-blue-500">
-                Reset Password
+                {{ __('Reset Password') }}
             </h2>
 
             @if($errors->has('errorCredentials'))
@@ -45,7 +45,9 @@
 
                     <div>
 
-                        <label for="password" class="block text-sm font-medium leading-6 text-balance">Password</label>
+                        <label for="password" class="block text-sm font-medium leading-6 text-balance">
+                            {{ __('Password') }}
+                        </label>
 
                         <div class="mt-2">
                             <input id="password"  name="password" type="password" required
@@ -59,7 +61,9 @@
 
                     <div>
                         <div class="flex items-center justify-between">
-                            <label for="password_confirmation" class="block text-sm font-medium leading-6 text-black">Confirm Password</label>
+                            <label for="password_confirmation" class="block text-sm font-medium leading-6 text-black">
+                                {{ __('Confirm Password') }}
+                            </label>
                         </div>
                         <div class="mt-2">
                             <input id="password_confirmation" name="password_confirmation" type="password" required
@@ -72,7 +76,7 @@
                     <div>
                         <button type="submit"
                             class="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500">
-                            Change
+                            {{ __('Change') }}
                         </button>
                     </div>
 

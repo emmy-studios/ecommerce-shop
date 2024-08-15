@@ -1,12 +1,12 @@
 <div class="container mx-auto px-4 py-8">
 
     <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-        <h1 class="text-2xl font-bold my-4">Shopping Cart</h1>
+        <h1 class="text-2xl font-bold my-4">{{ __('Shopping Cart') }}</h1>
         <a 
             class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded"
             href="{{ route('order.create') }}"
             >
-            Make an Order
+            {{ __('Make an Order') }}
         </a>
     </div>
 
@@ -44,7 +44,7 @@
     </div>
 
     <div class="flex justify-end items-center mt-8">
-        <span class="text-gray-600 mr-4">Subtotal:</span>
+        <span class="text-gray-600 mr-4">{{ __('Subtotal') }}:</span>
         @if($websiteInfo && $websiteInfo->currency_symbol)
             <span class="text-xl font-bold">{{ $websiteInfo->currency_symbol }}{{ $subTotal }}</span>
         @else

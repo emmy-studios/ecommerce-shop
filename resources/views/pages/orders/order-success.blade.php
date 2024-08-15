@@ -16,12 +16,14 @@
                     </path>
                 </svg>
                 <div class="text-center">
-                    <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">Payment Done!</h3>
-                    <p class="text-gray-600 my-2">Please, go to your dashboard to check and print your invoice!.</p>
-                    <p> Have a great day! </p>
+                    <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">{{ __('Payment Done!') }}</h3>
+                    <p class="text-gray-600 my-2">
+                        {{ __('Please, go to your dashboard to check and print your invoice!.') }}
+                    </p>
+                    <p> {{ __('Have a great day!') }} </p>
                     <div class="py-10 text-center">
                         <a href="{{ route('dashboard') }}" class="px-12 bg-purple-600 hover:bg-purple-500 text-white font-semibold py-3">
-                            DASHBOARD
+                            {{ __('DASHBOARD') }}
                         </a>
                     </div>
                 </div>

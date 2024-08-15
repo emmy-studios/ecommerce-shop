@@ -22,7 +22,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('{locale}')
-    ->middleware(Localization::class)
+    ->middleware(Localization::class) 
     ->group(function () {
 
         // News Routes

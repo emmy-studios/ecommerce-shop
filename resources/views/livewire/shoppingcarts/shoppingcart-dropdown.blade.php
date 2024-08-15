@@ -27,9 +27,9 @@
                     </p>
                 </div>
                 @if($websiteInfo && $websiteInfo->currency_symbol)
-                    <p class="pt-2">Total: <span class="text-slate-600">{{ $websiteInfo->currency_symbol }}{{ $totalPrice }}</span></p>
+                    <p class="pt-2">{{ __('Total') }}: <span class="text-slate-600">{{ $websiteInfo->currency_symbol }}{{ $totalPrice }}</span></p>
                 @else
-                    <p class="pt-2">Total: <span class="text-slate-600">${{ $totalPrice }}</span></p>
+                    <p class="pt-2">{{ __('Total') }}: <span class="text-slate-600">${{ $totalPrice }}</span></p>
                 @endif
             </div>
  

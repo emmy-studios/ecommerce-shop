@@ -23,7 +23,7 @@
             
             <h2 
                 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight to-blue-500">
-                Forgot Password?
+                {{ __('Forgot Password?') }}
             </h2>
 
             @if($errors->has('error'))
@@ -49,7 +49,9 @@
 
                     <div>
 
-                        <label for="email" class="block text-sm font-medium leading-6 text-balance">Email</label>
+                        <label for="email" class="block text-sm font-medium leading-6 text-balance">
+                            {{ __('Email') }}
+                        </label>
 
                         <div class="mt-2">
                             <input id="email"  name="email" type="text" required
@@ -61,16 +63,16 @@
                     <div>
                         <button type="submit"
                             class="flex w-full justify-center rounded-md bg-purple-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500">
-                            Send
+                            {{ __('Send') }}
                         </button>
                     </div>
 
             </form>
 
             <p class="mt-10 text-center text-sm text-gray-400">
-                Not a member?
+                {{ __('Not a member?') }}
                 <a href="{{ route('signup') }}" class="font-semibold leading-6 text-purple-500 hover:text-purple-400">
-                    Register for free
+                    {{ __('Register for free') }}
                 </a>
             </p>
 
