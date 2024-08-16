@@ -19,8 +19,7 @@
 
                     @if($order->status === 'processing')
                         <p class="text-gray-600 my-2">
-                            {{ __('You have canceled the order and your request is being evaluated. 
-                            You will receive an email with the corresponding message.') }}
+                            {{ __('You have canceled the order and your request is being evaluated. You will receive an email with the corresponding message.') }}
                         </p>
                     @else
                         <p class="text-gray-600 my-2">

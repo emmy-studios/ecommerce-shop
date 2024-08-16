@@ -91,11 +91,12 @@
             </div>
             
             {{-- Language Options --}}
+            
             <div x-show="languageDropdown" x-cloak class="flex flex-col bg-purple-200 text-purple-600 pl-8">
 
                 <div class="py-2 flex flex-row items-center">
                     <a 
-                        href="{{ route(Route::currentRouteName(), ['locale' => 'es']) }}">
+                        href="{{ url('es/' . implode('/', array_slice(request()->segments(), 1))) }}">
                         {{ __('Spanish') }}
                     </a>
                     <img
@@ -106,7 +107,7 @@
 
                 <div class="py-2 flex flex-row items-center">
                     <a 
-                        href="{{ route(Route::currentRouteName(), ['locale' => 'en']) }}">
+                        href="{{ url('en/' . implode('/', array_slice(request()->segments(), 1))) }}">
                         {{ __('English') }}
                     </a>
                     <img
@@ -115,7 +116,7 @@
                         alt="United States Flag">
                 </div>
 
-            </div>  
+            </div> 
         </div>
 
     </div>

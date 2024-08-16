@@ -58,8 +58,7 @@
             </div>
 
             <div class="flex justify-center py-4 flex-wrap">
-                <p><span class="font-bold">{{ __('Note') }}.</span>{{ __('You can only cancel order made by email, for paypal method go to 
-                    the paypal website or send us a message in the contact us section.') }}</p>
+                <p><span class="font-bold">{{ __('Note') }}.</span> {{ __('You can only cancel order made by email, for paypal method go to the paypal website or send us a message in the contact us section.') }}</p>
             </div>
 
         </div>

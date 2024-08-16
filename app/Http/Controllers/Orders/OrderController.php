@@ -147,7 +147,7 @@ class OrderController extends Controller
         
     }
 
-    public function orderReport($id)
+    public function orderReport($locale, $id)
     {
         $order = Order::findOrFail($id);
 
