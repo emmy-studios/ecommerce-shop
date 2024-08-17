@@ -8,6 +8,8 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditNewstag extends EditRecord
 {
+    use EditRecord\Concerns\Translatable;
+
     protected static string $resource = NewstagResource::class;
 
     protected function getHeaderActions(): array
@@ -15,6 +17,7 @@ class EditNewstag extends EditRecord
         return [
             Actions\ViewAction::make(),
             Actions\DeleteAction::make(),
+            Actions\LocaleSwitcher::make(),
         ];
     }
 

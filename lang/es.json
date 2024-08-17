@@ -321,5 +321,20 @@
     "Make an Order": "Hacer la Orden",
     "Language": "Idioma",
     "English": "Inglés",
-    "Spanish": "Español"
+    "Spanish": "Español",
+    "The user": "El usuario",
+    "Please, change the status order or delete the order if the request is valid.": "Por favor, cambie el estado del pedido o elimine el pedido si la solicitud es válida.",
+    "Order Request": "Solicitud de la Orden",
+    "has made a cancelation request.": "ha realizado una solicitud de cancelación.",
+    "Contact Us Message": "Mensaje de Contáctanos",
+    "New Order Made": "Nueva Orden Hecha",
+    "has made a new order": "ha hecho una nueva orden",
+    "Order Resume": "Resumen de la Orden",
+    "Please, check the admin dashboard or the database record to verifyed and continue the process.": "Por favor, consulte el panel de administración o el registro de la base de datos para verificar y continuar con el proceso.",
+    "Subscribe Email": "Correo Electrónico de Subscription",
+    "Thank you for subscribing!": "¡Gracias por suscribirte!",
+    "We have successfully received your subscription request with the email": "Hemos recibido con éxito su solicitud de suscripción con el correo electrónico",
+    "we understand what happened.": "entendemos lo que pasó.",
+    "In case you have any issues recovering your password, please contact us.": "En caso de que tenga algún problema para recuperar su contraseña, contáctenos.",
+    "Thanks": "¡Gracias!"
 } 

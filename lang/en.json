@@ -313,5 +313,20 @@
     "Make an Order": "Make an Order",
     "Language": "Language",
     "English": "English",
-    "Spanish": "Spanish"
-}  
+    "Spanish": "Spanish",
+    "The user": "The user",
+    "Please, change the status order or delete the order if the request is valid.": "Please, change the status order or delete the order if the request is valid.",
+    "Order Request": "Order Request",
+    "has made a cancelation request.": "has made a cancelation request.",
+    "Contact Us Message": "Contact Us Message",
+    "New Order Made": "New Order Made",
+    "has made a new order": "has made a new order",
+    "Order Resume": "Order Resume",
+    "Please, check the admin dashboard or the database record to verifyed and continue the process.": "Please, check the admin dashboard or the database record to verifyed and continue the process.",
+    "Subscribe Email": "Subscribe Email",
+    "Thank you for subscribing!": "Thank you for subscribing!",
+    "We have successfully received your subscription request with the email": "We have successfully received your subscription request with the email",
+    "we understand what happened.": "we understand what happened.",
+    "In case you have any issues recovering your password, please contact us.": "In case you have any issues recovering your password, please contact us.",
+    "Thanks": "Thanks"
+}   

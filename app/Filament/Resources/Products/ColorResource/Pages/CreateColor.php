@@ -8,10 +8,20 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateColor extends CreateRecord
 {
+
+    use CreateRecord\Concerns\Translatable;
+
     protected static string $resource = ColorResource::class;
 
     public function getTitle(): string
     {
         return __('Create Color');
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\LocaleSwitcher::make(),
+        ];
     }
 }

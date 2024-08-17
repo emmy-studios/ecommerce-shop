@@ -7,6 +7,7 @@ use App\Filament\Resources\Core\ImagetagResource\RelationManagers;
 use App\Models\Core\Imagetag;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -15,6 +16,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ImagetagResource extends Resource
 { 
+
+    use Translatable;
+
     protected static ?string $model = Imagetag::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-photo';

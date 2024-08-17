@@ -7,10 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\News\News;
+use Spatie\Translatable\HasTranslations;
 
 class Newstag extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public $translatable = [
+        'name',
+        'description',
+    ];
 
     protected $fillable = [
         'name',

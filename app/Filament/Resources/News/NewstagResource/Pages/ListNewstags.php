@@ -8,12 +8,15 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListNewstags extends ListRecords
 {
+    use ListRecords\Concerns\Translatable;
+
     protected static string $resource = NewstagResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
             Actions\CreateAction::make()->label(__('Create Tag')),
+            Actions\LocaleSwitcher::make(),
         ];
     }
 

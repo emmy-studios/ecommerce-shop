@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('newstags', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
+            $table->text('name')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

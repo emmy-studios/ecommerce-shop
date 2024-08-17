@@ -8,6 +8,9 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditImagetag extends EditRecord
 {
+
+    use EditRecord\Concerns\Translatable;
+
     protected static string $resource = ImagetagResource::class;
 
     protected function getHeaderActions(): array
@@ -15,6 +18,7 @@ class EditImagetag extends EditRecord
         return [
             Actions\ViewAction::make(),
             Actions\DeleteAction::make(),
+            Actions\LocaleSwitcher::make(),
         ];
     }
 

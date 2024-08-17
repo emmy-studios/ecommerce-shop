@@ -8,6 +8,9 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditDiscount extends EditRecord
 {
+
+    use EditRecord\Concerns\Translatable;
+
     protected static string $resource = DiscountResource::class;
 
     protected function getHeaderActions(): array
@@ -15,6 +18,7 @@ class EditDiscount extends EditRecord
         return [
             Actions\ViewAction::make(),
             Actions\DeleteAction::make(),
+            Actions\LocaleSwitcher::make(),
         ];
     }
 

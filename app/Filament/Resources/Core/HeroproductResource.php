@@ -7,6 +7,7 @@ use App\Filament\Resources\Core\HeroproductResource\RelationManagers;
 use App\Models\Core\Heroproduct;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -15,6 +16,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class HeroproductResource extends Resource
 {
+
+    use Translatable;
+
     protected static ?string $model = Heroproduct::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard';

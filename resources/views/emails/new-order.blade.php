@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Subscribe Email</title>
+        <title>{{ __('New Order Made') }}</title>
 
         <style>
 
@@ -32,40 +32,40 @@
         
         <h1>{{ $data['website_name'] }}</h1>
 
-        <h2>New Order Made!</h2>
+        <h2>{{ __('New Order Made') }}!</h2>
 
         <p>
-            The user <span>{{ $data['first_name'] }} {{ $data['last_name'] }}</span> has made a new order.
+            {{ __('The user') }} <span>{{ $data['first_name'] }} {{ $data['last_name'] }}</span> {{ __('has made a new order') }}.
         </p>
 
-        <h3>Order Resume</h3>
+        <h3>{{ __('Order Resume') }}</h3>
         <p>
-            <span>Username: </span> {{ $data['username'] }}
+            <span>{{ __('Username') }}: </span> {{ $data['username'] }}
         </p>
         <p>
-            <span>First Name: </span> {{ $data['first_name'] }}
+            <span>{{ __('First Name') }}: </span> {{ $data['first_name'] }}
         </p>
         <p>
-            <span>Last Name: </span> {{ $data['last_name'] }}
+            <span>{{ __('Last Name') }}: </span> {{ $data['last_name'] }}
         </p>
         <p>
-            <span>Customer Email: </span> {{ $data['email'] }}
+            <span>{{ __('Customer') }} {{ __('Email') }}: </span> {{ $data['email'] }}
         </p>
         <p>
-            <span>Customer Phone: </span> {{ $data['user_phone'] }}
+            <span>{{ __('Customer') }} {{ __('Phone') }}: </span> {{ $data['user_phone'] }}
         </p>
         <p>
-            <span>Order Code: </span> {{ $data['order_code'] }}
+            <span>{{ __('Order Code') }}: </span> {{ $data['order_code'] }}
         </p>
         <p>
-            <span>Order Sub Total: </span> ${{ $data['order_subtotal'] }}
+            <span>{{ __('Order') }} {{ __('Subtotal') }}: </span> ${{ $data['order_subtotal'] }}
         </p>
         <p>
-            <span>Order Total: </span> ${{ $data['total'] }}
+            <span>{{ __('Order') }} {{ __('Total') }}: </span> ${{ $data['total'] }}
         </p>
 
         <p>
-            Please, check the admin dashboard or the database record to verifyed and continue the process.
+            {{ __('Please, check the admin dashboard or the database record to verifyed and continue the process.') }}
         </p>
 
     </body>

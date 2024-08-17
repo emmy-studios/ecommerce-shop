@@ -7,6 +7,7 @@ use App\Filament\Resources\News\NewstagResource\RelationManagers;
 use App\Models\News\Newstag;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -15,13 +16,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class NewstagResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Newstag::class; 
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     protected static ?string $navigationLabel = null;
 
-    protected static ?string $navigationGroup = null;
+    protected static ?string $navigationGroup = null; 
 
     protected static ?int $navigationSort = 3;
 
@@ -60,7 +63,7 @@ class NewstagResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                // 
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

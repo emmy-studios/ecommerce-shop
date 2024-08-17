@@ -8,10 +8,20 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateCategory extends CreateRecord
 {
+
+    use CreateRecord\Concerns\Translatable;
+
     protected static string $resource = CategoryResource::class;
 
     public function getTitle(): string
     {
         return __('Create Category');
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\LocaleSwitcher::make(),
+        ];
     }
 }

@@ -37,7 +37,7 @@ class PasswordController extends Controller
         }
     }
 
-    public function reset($token)
+    public function reset($locale, $token)
     {
         $user = User::where('remember_token', '=', $token)->first();
         if (!empty($user)) {

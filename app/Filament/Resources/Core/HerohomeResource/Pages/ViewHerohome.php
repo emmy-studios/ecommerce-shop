@@ -8,12 +8,16 @@ use Filament\Resources\Pages\ViewRecord;
 
 class ViewHerohome extends ViewRecord
 {
+
+    use ViewRecord\Concerns\Translatable;
+
     protected static string $resource = HerohomeResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
             Actions\EditAction::make(),
+            Actions\LocaleSwitcher::make(),
         ];
     } 
 

@@ -8,11 +8,21 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateProduct extends CreateRecord
 {
+
+    use CreateRecord\Concerns\Translatable;
+
     protected static string $resource = ProductResource::class; 
 
     public function getTitle(): string
     {
         return __('Create Product');
+    }
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\LocaleSwitcher::make(),
+        ];
     }
 }
  

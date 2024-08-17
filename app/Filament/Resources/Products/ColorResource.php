@@ -7,6 +7,7 @@ use App\Filament\Resources\Products\ColorResource\RelationManagers;
 use App\Models\Products\Color;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Resources\Concerns\Translatable;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ColorResource extends Resource
 {
+    use Translatable;
+
     protected static ?string $model = Color::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-paint-brush';

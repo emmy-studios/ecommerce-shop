@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Cancel an Order</title>
+        <title>{{ __('Cancel an Order') }}</title>
 
         <style>
 
@@ -32,23 +32,23 @@
         
         <h1>{{ $data['website_name'] }}</h1>
 
-        <h2>Cancel an Order!</h2>
+        <h2>{{ __('Cancel an Order') }}!</h2>
 
         <p>
-            The user <span>{{ $data['first_name'] }} {{ $data['last_name'] }}</span> has made a cancelation request.
+            {{ __('The user') }} <span>{{ $data['first_name'] }} {{ $data['last_name'] }}</span> {{ __('has made a cancelation request.') }}
         </p>
 
-        <h3>Order Request</h3>
+        <h3>{{ __('Order Request') }}</h3>
         <p>
-            <span>Order Code: </span> {{ $data['order_code'] }}
-        </p>
-
-        <p>
-            <span>Email: </span> {{ $data['email'] }}
+            <span>{{ __('Order Code') }}: </span> {{ $data['order_code'] }}
         </p>
 
         <p>
-            Please, change the status or delete the order if the request is valid.
+            <span>{{ __('Email') }}: </span> {{ $data['email'] }}
+        </p>
+
+        <p>
+            {{ __('Please, change the status order or delete the order if the request is valid.') }}
         </p>
 
     </body>

@@ -8,10 +8,23 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 use App\Models\News\Author;
 use App\Models\News\Newstag;
+use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
     use HasFactory;
+    use HasTranslations;
+
+    public $translatable = [
+        'title',
+        'subtitle',
+        'resume',
+        'header',
+        'section_1',
+        'section_2',
+        'conclusion',
+        'content',
+    ];
 
     protected $fillable = [
         'title',

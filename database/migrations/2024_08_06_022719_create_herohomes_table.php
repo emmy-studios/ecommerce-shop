@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('herohomes', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('subtitle')->nullable();
-            $table->string('text')->nullable();
+            $table->text('title')->nullable();
+            $table->text('subtitle')->nullable();
+            $table->text('text')->nullable();
             $table->string('image_url');
             $table->timestamps();
         });
